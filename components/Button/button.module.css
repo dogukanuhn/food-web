@@ -1,0 +1,19 @@
+.button {
+  color: var(--secondary-text-color);
+  font-size: 17px;
+  font-weight: 500;
+  padding: 10px 25px;
+  &:hover {
+    text-decoration: none;
+    color: var(--secondary-text-color);
+  }
+  border-radius: 10px;
+}
+.orange {
+  background: var(--primary-color);
+  color: var(--primary-text-color);
+  &:hover {
+    text-decoration: none;
+    color: var(--primary-text-color);
+  }
+}

@@ -1,0 +1,34 @@
+.mainBanner {
+  .contentLeft {
+    left: 4rem;
+  }
+  .contentRight {
+    right: 4rem;
+    text-align: right;
+  }
+  .content {
+    position: absolute;
+    top: 5rem;
+    bottom: 5rem;
+    display: flex;
+    align-content: space-between;
+    flex-flow: row wrap;
+    color: white;
+    width: 40%;
+
+    h2 {
+      font-size: 26pt;
+      letter-spacing: 0.5rem;
+    }
+  }
+  img {
+    width: 100%;
+    height: 366px;
+    border-radius: 30px;
+    object-fit: cover;
+  }
+}
+
+.banner {
+  position: relative;
+}
