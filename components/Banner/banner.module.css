@@ -32,3 +32,16 @@
 .banner {
   position: relative;
 }
+
+.iconButton {
+  background: rgba(0, 0, 0, 0.5);
+  position: relative;
+  top: 0;
+  margin-right: 1rem;
+  &:hover {
+    box-shadow: 0 0 15px 0 rgb(247 157 22 / 35%);
+    transform: scale(1.05);
+    top: -10px;
+    transition: all 0.3s ease;
+  }
+}

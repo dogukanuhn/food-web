@@ -3,10 +3,15 @@
   font-size: 17px;
   font-weight: 500;
   padding: 10px 25px;
+  transition: all 0.3s ease;
   &:hover {
     text-decoration: none;
     color: var(--secondary-text-color);
+    box-shadow: 0 0 15px 0 rgba(140, 140, 140, 0.2);
+    transform: scale(1.05);
+    transition: all 0.3s ease;
   }
+  display: inline-block;
   border-radius: 10px;
 }
 .orange {

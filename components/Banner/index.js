@@ -15,13 +15,13 @@ function MainBanner({ contentPosition, children, ...props }) {
       >
         <h2>Find Healthy And Favourite Foods Near You</h2>
         <div>
-          <IconButton>
+          <IconButton className={styles.iconButton}>
             <FaHamburger />
           </IconButton>
-          <IconButton>
+          <IconButton className={styles.iconButton}>
             <FaFish />
           </IconButton>
-          <IconButton>
+          <IconButton className={styles.iconButton}>
             <FaCarrot />
           </IconButton>
         </div>

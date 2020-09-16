@@ -1,17 +1,8 @@
 .button {
-  background: red;
   padding: 15px;
   cursor: pointer;
   display: inline-flex;
-  background: rgba(0, 0, 0, 0.5);
-  transition: all 0.3s ease;
+
   border-radius: 50px;
-  margin-right: 1rem;
-  position: relative;
-  top: 0;
   transition: all 0.3s ease;
-  &:hover {
-    top: -10px;
-    transition: all 0.3s ease;
-  }
 }
