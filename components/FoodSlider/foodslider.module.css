@@ -1,3 +1,35 @@
 #foodSlider {
-  margin: 70px 0;
+  margin: 3rem 0;
+
+  .aboutArea {
+    display: flex;
+    justify-content: space-between;
+    h3 {
+      padding-top: 2rem;
+    }
+  }
+
+  .arrowButton {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+  }
+}
+
+.arrow {
+  left: unset;
+  top: -1.5rem;
+  &::before {
+    color: black;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+    font-size: 30px;
+  }
+}
+.prevArrow {
+  right: 3rem;
+}
+
+.nextArrow {
+  left: unset;
+  right: 1rem;
 }
