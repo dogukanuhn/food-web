@@ -1,0 +1,6 @@
+#categoryList {
+  display: flex;
+  margin-top: 2rem;
+  flex-flow: row wrap;
+  justify-content: center;
+}

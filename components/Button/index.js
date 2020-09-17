@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './button.module.css'
 import cn from 'classnames'
 import Link from 'next/link'
+
 function LinkButton({ href, children, ...props }) {
   return (
     <Link href={href}>

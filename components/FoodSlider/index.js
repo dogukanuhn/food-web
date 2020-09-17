@@ -1,9 +1,7 @@
 import React from 'react'
-import { Col, Row } from 'react-bootstrap'
-import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
+
 import Slider from 'react-slick'
 import FoodCard from '../FoodCard'
-import IconButton from '../IconButton'
 
 import styles from './foodslider.module.css'
 import cn from 'classnames'
@@ -43,7 +41,7 @@ export default function index() {
   }
 
   return (
-    <section id={styles.foodSlider}>
+    <div id={styles.foodSlider}>
       <div className="container">
         <div className={styles.aboutArea}>
           <h3>Yemeklerimiz</h3>
@@ -56,6 +54,6 @@ export default function index() {
           <FoodCard></FoodCard>
         </Slider>
       </div>
-    </section>
+    </div>
   )
 }

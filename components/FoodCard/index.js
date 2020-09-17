@@ -18,7 +18,7 @@ export default function index() {
 
           <StarRatings
             rating={3}
-            starDimension={15}
+            starDimension={'15'}
             starRatedColor="#f79d16"
             numberOfStars={6}
             name="rating"
