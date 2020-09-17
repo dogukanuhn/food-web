@@ -1,9 +1,12 @@
 #foodSlider {
-  margin: 3rem 0;
+  margin: 2rem 0;
 
   .aboutArea {
     display: flex;
     justify-content: space-between;
+  }
+  h3 {
+    font-weight: 600;
   }
 
   .arrowButton {
