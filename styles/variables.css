@@ -3,4 +3,5 @@
   --secondary-text-color: #2e4765;
   --primary-color: #f79d16;
   --cart-color: #56cc77;
+  --default-transition: all 0.3s ease;
 }

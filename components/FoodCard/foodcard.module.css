@@ -3,6 +3,11 @@
   border-radius: 10px;
   position: relative;
   margin: 0px 10px;
+  transition: var(--default-transition);
+  &:hover {
+    transform: scale(1.02);
+    transition: var(--default-transition);
+  }
   img {
     width: 100%;
     height: 25rem;
@@ -15,10 +20,9 @@
     height: 11rem;
     border-radius: 100% 100% 100% 0% / 70% 70% 0% 100%;
     position: absolute;
-    bottom: 0;
-    left: 0;
-
-    right: 0;
+    bottom: -1px;
+    left: -1px;
+    right: -1px;
     display: flex;
     justify-content: center;
 
