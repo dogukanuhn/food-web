@@ -15,10 +15,10 @@
     margin-right: 0.5rem;
   }
   &:hover {
-    fill: white;
+    fill: var(--primary-text-color);
     transition: var(--default-transition);
     text-decoration: none;
     background: var(--primary-color);
-    color: white;
+    color: var(--primary-text-color);
   }
 }

@@ -13,7 +13,7 @@
     display: flex;
     align-content: space-between;
     flex-flow: row wrap;
-    color: white;
+    color: var(--primary-text-color);
     width: 40%;
 
     h2 {
@@ -22,15 +22,18 @@
     }
   }
   img {
-    width: 100%;
     height: 366px;
-    border-radius: 30px;
-    object-fit: cover;
   }
 }
 
 .banner {
   position: relative;
+  img {
+    width: 100%;
+
+    border-radius: 30px;
+    object-fit: cover;
+  }
 }
 
 .iconButton {
@@ -43,5 +46,37 @@
     transform: scale(1.05);
     top: -10px;
     transition: var(--default-transition);
+  }
+}
+
+.subBanner {
+  cursor: pointer;
+
+  .content {
+    border-radius: 20px;
+    height: 12rem;
+    box-shadow: 0 0 12px 0 rgb(113 113 113 / 43%);
+    background-size: cover;
+  }
+
+  &:hover .overlay {
+    opacity: 1;
+    transition: opacity 0.2s ease-out;
+  }
+
+  .overlay {
+    display: flex;
+    color: var(--primary-text-color);
+    align-items: center;
+    text-align: center;
+    border-radius: 20px;
+    transition: opacity 0.2s ease-out;
+    opacity: 0;
+    background-color: rgb(255 94 0 / 47%);
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
   }
 }

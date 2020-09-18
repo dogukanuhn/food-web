@@ -46,7 +46,7 @@
 
   .cartButton {
     background: var(--cart-color);
-    color: white;
+    color: var(--primary-text-color);
     display: flex;
     justify-content: center;
     align-items: center;
