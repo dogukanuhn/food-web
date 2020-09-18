@@ -5,9 +5,6 @@
     display: flex;
     justify-content: space-between;
   }
-  h3 {
-    font-weight: 600;
-  }
 
   .arrowButton {
     background: rgba(0, 0, 0, 0.5);

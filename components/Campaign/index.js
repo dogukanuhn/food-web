@@ -7,6 +7,7 @@ export default function index() {
   return (
     <div id={styles.campaign}>
       <div className="container">
+        <h3>Son Fırsatlar</h3>
         <Row>
           <Col xs={4}>
             <Banner src="/images/banner.jpg" banner={BannerType.SUB}></Banner>
