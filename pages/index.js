@@ -3,7 +3,6 @@ import Banner from '../components/Banner'
 import FoodSlider from '../components/FoodSlider'
 import CategoryList from '../components/CategoryList'
 import Campaign from '../components/Campaign'
-import { BannerType } from '../Enums/BannerType'
 
 export default function Home() {
   return (
