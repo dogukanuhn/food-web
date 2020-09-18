@@ -17,6 +17,11 @@
     justify-content: center;
   }
   .cartList {
+    .paymentButton {
+      padding: 5px 15px;
+      background: white;
+      font-size: 1rem;
+    }
     transition: var(--default-transition);
     display: none;
     background: white;
@@ -26,54 +31,27 @@
     width: 23rem;
     height: 25rem;
     overflow: hidden;
-    .firstCol {
-      display: flex;
-      justify-content: space-between;
+    .pricing {
+      font-size: 1.2rem;
+      position: absolute;
+      bottom: 1rem;
+      left: 1rem;
+      font-weight: 600;
+      .totalText {
+        margin-right: 0.3rem;
+      }
     }
     .title {
       display: flex;
       justify-content: space-between;
       align-items: center;
       background: var(--cart-color);
-      .pricing {
-        font-size: 1.2rem;
-        font-weight: 600;
-      }
-      .totalText {
-        margin-right: 0.3rem;
-      }
+
       padding: 0.5rem 1rem;
       color: var(--primary-text-color);
       h4 {
         margin: 0;
       }
     }
-  }
-}
-
-#cartItem {
-  padding: 0.7rem 0.5rem;
-  img {
-    border-radius: 10px;
-  }
-  .Row {
-    align-items: center;
-  }
-  .cancelButton {
-    fill: red;
-    font-size: 0.8rem;
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-  }
-  .foodName {
-    font-weight: 600;
-  }
-  input {
-    width: 100%;
-    text-align: center;
-    border: 1px solid #d2d2d2;
-    border-radius: 4px;
   }
 }

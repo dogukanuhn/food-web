@@ -2,6 +2,10 @@ import React, { useState } from 'react'
 import styles from './cart.module.css'
 import { ShoppingCart, Close } from '../icons'
 import IconButton from '../IconButton'
+import CartItem from '../CartItem'
+
+import Button from '../Button'
+
 import { Col, Row } from 'react-bootstrap'
 
 export default function index() {
@@ -20,46 +24,25 @@ export default function index() {
       >
         <div className={styles.title}>
           <h4>Sepet</h4>
+          <div>
+            <Button className={styles.paymentButton}>Öde</Button>
+          </div>
         </div>
-        <div id={styles.cartItem}>
-          <Row className={styles.Row}>
-            <Col xs={3}>
-              <img src="/images/burger.jpg" alt="" />
-            </Col>
-            <Col xs={5}>
-              <span className={styles.foodName}>Jet Burger</span>
-            </Col>
-            <Col xs={2}>
-              <input type="number" value="1" />
-            </Col>
-            <Col xs={2}>
-              <span className={styles.cancelButton}>
-                <Close />
-              </span>
-            </Col>
-          </Row>
-        </div>
-        <div id={styles.cartItem}>
-          <Row className={styles.Row}>
-            <Col xs={3}>
-              <img src="/images/burger.jpg" alt="" />
-            </Col>
-            <Col xs={5}>
-              <span className={styles.foodName}>Barbekü Soslu Pizza</span>
-            </Col>
-            <Col xs={2}>
-              <input type="number" value="1" />
-            </Col>
-            <Col xs={2}>
-              <span className={styles.cancelButton}>
-                <Close />
-              </span>
-            </Col>
-          </Row>
-        </div>
-        {/* <span className={styles.pricing}>
+        <CartItem
+          src="/images/burger.jpg"
+          name="Jet Pizza"
+          count="1"
+          price="14.00"
+        />
+        <CartItem
+          src="/images/burger.jpg"
+          name="Barbekü soslu Tavuk Pizza"
+          count="1"
+          price="14.00"
+        />
+        <span className={styles.pricing}>
           <span className={styles.totalText}>Toplam:</span>16.44 ₺
-        </span> */}
+        </span>
       </div>
     </div>
   )
