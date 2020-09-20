@@ -1,4 +1,4 @@
-import Layout from '../components/layout'
+import Layout from '../components/Layout'
 import Banner from '../components/Banner'
 import FoodSlider from '../components/FoodSlider'
 import CategoryList from '../components/CategoryList'

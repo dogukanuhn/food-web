@@ -1,0 +1,49 @@
+.modal {
+  border-radius: 20px;
+  background: white;
+  z-index: 6;
+  width: 50rem;
+  height: fit-content;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+
+  .modalInner {
+    padding: 1.5rem;
+    .modalTop {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px dashed var(--secondary-text-color);
+      padding-bottom: 0.2rem;
+      h3 {
+        margin: 0;
+      }
+    }
+    .modalContent {
+      padding-top: 1rem;
+
+      .foodDetail {
+        padding-bottom: 1.5rem;
+        .info {
+          padding-left: 5px;
+          color: var(--primary-color);
+          cursor: pointer;
+        }
+        h6 {
+          line-height: unset;
+
+          margin: 0;
+        }
+        h6::after {
+          content: ':';
+          position: absolute;
+          right: 0;
+        }
+      }
+    }
+  }
+}

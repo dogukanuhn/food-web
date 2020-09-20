@@ -5,6 +5,8 @@
   padding: 0;
   border: 0;
   font: inherit;
+
+  outline: 0;
 }
 
 html {
