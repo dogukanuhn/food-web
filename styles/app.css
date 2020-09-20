@@ -22,8 +22,13 @@ body {
 .slick-list {
   padding: 15px 0 !important;
 }
+.slick-slide {
+  padding: 0px 10px;
+}
 
-h3 {
+h4,
+h3,
+h2 {
   font-weight: 600;
 }
 

@@ -1,10 +1,11 @@
 import React from 'react'
 import Link from 'next/link'
 import styles from './categorybutton.module.css'
-export default function index({ icon, text, href, children, ...props }) {
+import cn from 'classnames'
+export default function index({ icon, text, href, className, ...props }) {
   return (
     <Link href={href}>
-      <a className={styles.categoryButton} {...props}>
+      <a className={cn(styles.categoryButton, className)} {...props}>
         <span>{icon}</span>
         {text}
       </a>

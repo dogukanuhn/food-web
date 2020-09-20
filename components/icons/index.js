@@ -1,5 +1,7 @@
 export { default as Burger } from './Burger'
 export { default as Close } from './Close'
+export { default as FacebookBrands } from './FacebookBrands'
 export { default as FoodServing } from './FoodServing'
+export { default as İnstagramBrands } from './İnstagramBrands'
 export { default as ShoppingCart } from './ShoppingCart'
 export { default as TakeAway } from './TakeAway'

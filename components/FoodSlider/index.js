@@ -36,6 +36,7 @@ export default function index() {
     slidesToScroll: 1,
     className: styles.Slider,
     draggable: false,
+    lazyload: true,
     prevArrow: <SamplePrevArrow />,
     nextArrow: <SampleNextArrow />
   }
@@ -44,7 +45,7 @@ export default function index() {
     <div id={styles.foodSlider}>
       <div className="container">
         <div className={styles.aboutArea}>
-          <h3>Yemeklerimiz</h3>
+          <h3>Popüler Menülerimiz</h3>
         </div>
         <Slider {...settings}>
           <FoodCard></FoodCard>
