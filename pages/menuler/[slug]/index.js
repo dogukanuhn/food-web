@@ -1,6 +1,6 @@
 import React from 'react'
 import { Col, Row } from 'react-bootstrap'
-import Layout from '../../../components/layout'
+import Layout from '../../../components/Layout'
 import CategoryList from '../../../components/CategoryList'
 import FoodCard from '../../../components/FoodCard'
 import styles from './menuler.module.css'

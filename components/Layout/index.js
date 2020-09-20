@@ -5,11 +5,11 @@ import FoodModal from '../FoodModal'
 import Cart from '../Cart'
 import { useDispatch, useSelector } from 'react-redux'
 import styles from './layout.module.css'
-function index({ children }) {
+export default function layout({ children }) {
   const toggleModal = useSelector((state) => state.modalStatus)
   const dispatch = useDispatch()
   return (
-    <div>
+    <div id={styles.layout}>
       {toggleModal && (
         <div
           onClick={() => dispatch({ type: 'ToggleModal' })}
@@ -24,5 +24,3 @@ function index({ children }) {
     </div>
   )
 }
-
-export default index

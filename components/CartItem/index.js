@@ -14,7 +14,7 @@ export default function index({ src, name, count, price }) {
         </Col>
         <Col xs={3} className="p-0">
           <div className={styles.numberArea}>
-            <input type="number" value={count} />
+            <input type="number" value={count} readOnly />
             <span className={styles.price}>{price} TL</span>
           </div>
         </Col>
