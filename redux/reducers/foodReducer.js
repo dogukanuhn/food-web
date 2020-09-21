@@ -1,4 +1,4 @@
-const initialState = { modalStatus: true }
+const initialState = { modalStatus: false }
 
 export default function reducer(state = initialState, action) {
   const { type, payload } = action

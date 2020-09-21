@@ -22,12 +22,32 @@
       h3 {
         margin: 0;
       }
+      span {
+        font-weight: 600;
+        font-size: 1.2rem;
+        color: var(--primary-color);
+      }
     }
     .modalContent {
+      h6 {
+        font-weight: 600;
+      }
       padding-top: 1rem;
-
+      .foodImage {
+        text-align: center;
+        img {
+          width: 20rem;
+          border-radius: 20px;
+        }
+        margin-bottom: 1.5rem;
+      }
       .foodDetail {
         padding-bottom: 1.5rem;
+
+        .noMaterial {
+          text-decoration: line-through;
+        }
+
         .info {
           padding-left: 5px;
           color: var(--primary-color);
@@ -43,6 +63,15 @@
           position: absolute;
           right: 0;
         }
+      }
+    }
+
+    .modalFooter {
+      padding-top: 1rem;
+      text-align: right;
+      .addCart {
+        background: var(--cart-color);
+        color: white;
       }
     }
   }

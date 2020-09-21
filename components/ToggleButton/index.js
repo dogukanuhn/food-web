@@ -1,8 +1,9 @@
 import React from 'react'
 import styles from './button.module.css'
-export default function index({ children, click }) {
+import cn from 'classnames'
+export default function index({ className, children, click }) {
   return (
-    <span className={styles.toggleButton} onClick={click}>
+    <span className={cn(styles.toggleButton, className)} onClick={click}>
       {children}
     </span>
   )

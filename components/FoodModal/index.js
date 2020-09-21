@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Col, Row } from 'react-bootstrap'
 import Select from '../Select'
 import ToggleButton from '../ToggleButton'
+import Button from '../Button'
 
 import styles from './foodmodal.module.css'
 export default function index() {
+  const [product, setproduct] = useState(false)
+
   return (
     <div className={styles.modal}>
       <div className={styles.modalInner}>
@@ -13,6 +16,9 @@ export default function index() {
           <span>16.00 ₺</span>
         </div>
         <div className={styles.modalContent}>
+          <div className={styles.foodImage}>
+            <img src="/images/burger.jpg" />
+          </div>
           <div className={styles.foodDetail}>
             <Row>
               <Col xs={2}>
@@ -44,10 +50,44 @@ export default function index() {
                 </div>
               </Col>
               <Col xs={9}>
-                <ToggleButton>Sucuk</ToggleButton>
+                <ToggleButton
+                  className={product && styles.noMaterial}
+                  click={() => {
+                    setproduct(!product)
+                  }}
+                >
+                  Sucuk
+                </ToggleButton>
+                <ToggleButton
+                  className={product && styles.noMaterial}
+                  click={() => {
+                    setproduct(!product)
+                  }}
+                >
+                  Sucuk
+                </ToggleButton>
+                <ToggleButton
+                  className={product && styles.noMaterial}
+                  click={() => {
+                    setproduct(!product)
+                  }}
+                >
+                  Sucuk
+                </ToggleButton>
+                <ToggleButton
+                  className={product && styles.noMaterial}
+                  click={() => {
+                    setproduct(!product)
+                  }}
+                >
+                  Sucuk
+                </ToggleButton>
               </Col>
             </Row>
           </div>
+        </div>
+        <div className={styles.modalFooter}>
+          <Button className={styles.addCart}>SEPETE EKLE</Button>
         </div>
       </div>
     </div>
