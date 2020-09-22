@@ -1,13 +1,15 @@
-const initialState = { accountModal: false }
+const initialState = { accountModal: { status: false, type: 0 } }
 
-export default function reducer2(state = initialState, action) {
-  const { type, payload } = action
+export default function reducer2(state = initialState, outAction) {
+  const { type, action } = outAction
+
   switch (type) {
-    case 'ToggleAccountModal':
+    case 'AccountModal':
       return {
         ...state,
-        accountModal: !state.accountModal
+        accountModal: { status: action.status, type: action.type }
       }
+
     default:
       return state
   }

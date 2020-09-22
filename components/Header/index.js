@@ -18,11 +18,23 @@ export default function Header() {
         </Link>
       </div>
       <HeaderMenu>
-        <Button onClick={() => dispatch({ type: 'ToggleAccountModal' })}>
+        <Button
+          onClick={() =>
+            dispatch({
+              type: 'AccountModal',
+              action: { status: true, type: 0 }
+            })
+          }
+        >
           Giriş Yap
         </Button>
         <Button
-          onClick={() => dispatch({ type: 'ToggleAccountModal' })}
+          onClick={() =>
+            dispatch({
+              type: 'AccountModal',
+              action: { status: true, type: 1 }
+            })
+          }
           color={true}
         >
           Kayıt Ol

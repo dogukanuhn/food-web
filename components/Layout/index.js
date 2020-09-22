@@ -11,7 +11,7 @@ export default function layout({ children }) {
     (state) => state['FoodReducer']['modalStatus']
   )
   const accountModal = useSelector(
-    (state) => state['RootReducer']['accountModal']
+    (state) => state['RootReducer']['accountModal']['status']
   )
   const dispatch = useDispatch()
 
@@ -23,7 +23,10 @@ export default function layout({ children }) {
             if (toggleModal) {
               dispatch({ type: 'ToggleModal' })
             } else {
-              dispatch({ type: 'ToggleAccountModal' })
+              dispatch({
+                type: 'AccountModal',
+                action: { status: false }
+              })
             }
           }}
           className={styles.overlay}
