@@ -1,4 +1,4 @@
 import { combineReducers, createStore } from 'redux'
-import foodReducer from './reducers/foodReducer'
+import { FoodReducer, RootReducer } from './reducers'
 
-export const store = createStore(foodReducer)
+export const store = createStore(combineReducers({ RootReducer, FoodReducer }))

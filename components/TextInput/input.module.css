@@ -1,0 +1,10 @@
+.textInput {
+  width: 100%;
+  padding: 0.8rem 0.5rem;
+  border: 1px solid #d2d2d2;
+  border-radius: 4px;
+
+  &:focus-within {
+    border-color: var(--primary-color);
+  }
+}

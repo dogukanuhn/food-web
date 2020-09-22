@@ -5,7 +5,9 @@ import styles from './header.module.css'
 import Button from '../Button'
 import HeaderMenu from './HeaderMenu'
 import Link from 'next/link'
+import { useDispatch } from 'react-redux'
 export default function Header() {
+  const dispatch = useDispatch()
   return (
     <header id={styles.header} className="container">
       <div className={styles.logoArea}>
@@ -16,8 +18,13 @@ export default function Header() {
         </Link>
       </div>
       <HeaderMenu>
-        <Button href="login">Giriş Yap</Button>
-        <Button href="register" color={true}>
+        <Button onClick={() => dispatch({ type: 'ToggleAccountModal' })}>
+          Giriş Yap
+        </Button>
+        <Button
+          onClick={() => dispatch({ type: 'ToggleAccountModal' })}
+          color={true}
+        >
           Kayıt Ol
         </Button>
       </HeaderMenu>

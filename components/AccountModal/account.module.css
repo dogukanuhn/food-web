@@ -1,0 +1,41 @@
+.modal {
+  border-radius: 20px;
+  background: white;
+  z-index: 6;
+  width: 35rem;
+  height: fit-content;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+
+  .modalInner {
+    padding: 1.5rem;
+
+    .modalTop {
+      border-bottom: 2px dashed var(--secondary-text-color);
+    }
+
+    .modalContent {
+      padding-top: 1rem;
+
+      input {
+        margin-top: 1rem;
+      }
+      button {
+        margin-top: 1rem;
+        margin-left: 0;
+
+        width: 100%;
+      }
+      form {
+        button {
+          background: var(--primary-color);
+          color: white;
+        }
+      }
+    }
+  }
+}
