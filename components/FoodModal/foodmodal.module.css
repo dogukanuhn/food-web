@@ -22,10 +22,16 @@
       h3 {
         margin: 0;
       }
-      span {
+      .sellPrice {
         font-weight: 600;
         font-size: 1.2rem;
         color: var(--primary-color);
+      }
+      .basePrice {
+        color: black;
+        opacity: 0.3;
+        text-decoration: line-through;
+        padding: 0 1rem;
       }
     }
     .modalContent {

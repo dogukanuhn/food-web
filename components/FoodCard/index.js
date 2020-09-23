@@ -21,7 +21,12 @@ export default function index({ foodData, className }) {
           </IconButton>
           <h4>{foodData.name}</h4>
 
-          <span className={styles.sellPrice}>{foodData.sellPrice} ₺</span>
+          <span className={styles.sellPrice}>
+            {foodData.discount && (
+              <span className={styles.basePrice}>{foodData.basePrice} ₺</span>
+            )}
+            {foodData.sellPrice} ₺
+          </span>
 
           <StarRatings
             rating={3}

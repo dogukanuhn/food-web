@@ -16,6 +16,10 @@
   }
   .foodName {
     font-weight: 600;
+    display: block;
+  }
+  .canceledItems {
+    font-size: 0.7rem;
   }
   input {
     width: 25%;

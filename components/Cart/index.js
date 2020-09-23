@@ -7,9 +7,13 @@ import CartItem from '../CartItem'
 import Button from '../Button'
 
 import { Col, Row } from 'react-bootstrap'
+import { useSelector } from 'react-redux'
 
 export default function index() {
   const [menuState, setMenuState] = useState(false)
+
+  const cartItems = useSelector((state) => state['RootReducer']['cart'])
+  console.log(cartItems)
   return (
     <div id={styles.cart}>
       <IconButton
@@ -28,18 +32,19 @@ export default function index() {
             <Button className={styles.paymentButton}>Öde</Button>
           </div>
         </div>
-        <CartItem
-          src="/images/burger.jpg"
-          name="Jet Pizza"
-          count="1"
-          price="14.00"
-        />
-        <CartItem
-          src="/images/burger.jpg"
-          name="Barbekü soslu Tavuk Pizza"
-          count="1"
-          price="14.00"
-        />
+
+        {cartItems.map((x) => {
+          return (
+            <CartItem
+              src={x.image}
+              name={x.name}
+              count={x.count}
+              price={x.sellPrice}
+              ingredient={x.ingredients}
+              items={x.selectedItems}
+            />
+          )
+        })}
         <span className={styles.pricing}>
           <span className={styles.totalText}>Toplam:</span>16.44 ₺
         </span>

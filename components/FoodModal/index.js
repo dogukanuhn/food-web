@@ -10,6 +10,16 @@ export default function index() {
   const foodData = useSelector(
     (state) => state['FoodReducer']['modalFoodDetail']
   )
+  var selectedItems = []
+  var addToCart = () => {
+    foodData['count'] = 1
+    foodData['selectedItems'] = selectedItems
+
+    dispatch({ type: 'AddToCart', action: foodData })
+    dispatch({
+      type: 'ToggleModal'
+    })
+  }
 
   const dispatch = useDispatch()
   return (
@@ -17,7 +27,12 @@ export default function index() {
       <div className={styles.modalInner}>
         <div className={styles.modalTop}>
           <h3>{foodData.name}</h3>
-          <span>{foodData.sellPrice} ₺</span>
+          <span className={styles.sellPrice}>
+            {foodData.discount && (
+              <span className={styles.basePrice}>{foodData.basePrice} ₺</span>
+            )}
+            {foodData.sellPrice} ₺
+          </span>
         </div>
         <div className={styles.modalContent}>
           <div className={styles.foodImage}>
@@ -34,7 +49,7 @@ export default function index() {
             </Row>
           </div>
           {foodData.selectList &&
-            foodData.selectList.map((x) => {
+            foodData.selectList.map((x, i) => {
               return (
                 <div className={styles.foodDetail}>
                   <Row>
@@ -42,7 +57,7 @@ export default function index() {
                       <h6>{x.name}</h6>
                     </Col>
                     <Col xs={9}>
-                      <Select data={x.data} />
+                      <Select value={selectedItems[i]} data={x.data} />
                     </Col>
                   </Row>
                 </div>
@@ -79,7 +94,9 @@ export default function index() {
           )}
         </div>
         <div className={styles.modalFooter}>
-          <Button className={styles.addCart}>SEPETE EKLE</Button>
+          <Button className={styles.addCart} onClick={addToCart}>
+            SEPETE EKLE
+          </Button>
         </div>
       </div>
     </div>

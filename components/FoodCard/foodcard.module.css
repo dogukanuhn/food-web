@@ -49,6 +49,12 @@
         font-weight: 600;
         padding: 5px 0;
       }
+      .basePrice {
+        color: black;
+        opacity: 0.3;
+        text-decoration: line-through;
+        padding: 5px 0;
+      }
     }
   }
 
