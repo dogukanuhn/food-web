@@ -10,7 +10,7 @@ export default function index() {
   const foodData = useSelector(
     (state) => state['FoodReducer']['modalFoodDetail']
   )
-  console.log(foodData)
+
   const dispatch = useDispatch()
   return (
     <div className={styles.modal}>
@@ -60,14 +60,13 @@ export default function index() {
                   {foodData.ingredients.map((x, i) => {
                     return (
                       <ToggleButton
-                        className={x.status && styles.noMaterial}
+                        className={!x.status && styles.noMaterial}
                         click={() => {
                           x.status = !x.status
                           dispatch({
                             type: 'ChangeIngredientStatus',
                             action: { id: i, value: x.status }
                           })
-                          console.log(foodData)
                         }}
                       >
                         {x.name}

@@ -21,7 +21,7 @@ export default function layout({ children }) {
         <div
           onClick={() => {
             if (toggleModal) {
-              dispatch({ type: 'ToggleModal' })
+              dispatch({ type: 'ToggleModal', action: null })
             } else {
               dispatch({
                 type: 'AccountModal',

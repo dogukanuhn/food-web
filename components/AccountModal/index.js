@@ -9,7 +9,7 @@ export default function index() {
     (state) => state['RootReducer']['accountModal']['type']
   )
   const dispatch = useDispatch()
-  console.log(tab)
+
   return (
     <div className={styles.modal}>
       <div className={styles.modalInner}>

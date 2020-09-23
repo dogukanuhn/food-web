@@ -3,9 +3,10 @@ const initialState = { modalStatus: false, modalFoodDetail: null }
 
 export default function reducer(state = initialState, act) {
   const { type, action } = act
-  console.log(act)
+
   switch (type) {
     case 'ToggleModal':
+      console.log(action)
       return {
         ...state,
         modalStatus: !state.modalStatus,
@@ -22,6 +23,7 @@ export default function reducer(state = initialState, act) {
           }
         }
       })
+
     default:
       return state
   }

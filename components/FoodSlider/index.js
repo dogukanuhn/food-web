@@ -47,6 +47,7 @@ export default function index({ slideData }) {
         <div className={styles.aboutArea}>
           <h3>Popüler Menülerimiz</h3>
         </div>
+
         <Slider {...settings}>
           {slideData.map((x) => {
             return <FoodCard foodData={x}></FoodCard>
