@@ -27,7 +27,7 @@ function SamplePrevArrow(props) {
   )
 }
 
-export default function index() {
+export default function index({ slideData }) {
   const settings = {
     dots: false,
     speed: 500,
@@ -48,11 +48,9 @@ export default function index() {
           <h3>Popüler Menülerimiz</h3>
         </div>
         <Slider {...settings}>
-          <FoodCard></FoodCard>
-          <FoodCard></FoodCard>
-          <FoodCard></FoodCard>
-          <FoodCard></FoodCard>
-          <FoodCard></FoodCard>
+          {slideData.map((x) => {
+            return <FoodCard foodData={x}></FoodCard>
+          })}
         </Slider>
       </div>
     </div>

@@ -39,14 +39,11 @@ export default function index() {
               </Button>
             </div>
           )}
-
           {tab === 1 && (
             <div>
               <form>
                 <TextInput placeholder="Adı" />
-
                 <TextInput placeholder="Soyadı" />
-
                 <TextInput placeholder="E-Posta Adresi" />
                 <TextInput placeholder="Parola" />
                 <TextInput placeholder="Parola Tekrar" />
