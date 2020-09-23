@@ -12,7 +12,7 @@ export default function index() {
         <div className="container">
           <h2>Burger Menülerimiz</h2>
           <Row>
-            <Col xs={3}>
+            {/* <Col xs={3}>
               <FoodCard></FoodCard>
             </Col>
             <Col xs={3}>
@@ -29,7 +29,7 @@ export default function index() {
             </Col>
             <Col xs={3}>
               <FoodCard></FoodCard>
-            </Col>
+            </Col> */}
           </Row>
         </div>
       </div>

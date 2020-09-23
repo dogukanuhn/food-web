@@ -16,12 +16,12 @@ export default function index() {
     <div className={styles.modal}>
       <div className={styles.modalInner}>
         <div className={styles.modalTop}>
-          <h3>{foodData['name']}</h3>
-          <span>{foodData['sellPrice']} ₺</span>
+          <h3>{foodData.name}</h3>
+          <span>{foodData.sellPrice} ₺</span>
         </div>
         <div className={styles.modalContent}>
           <div className={styles.foodImage}>
-            <img src={foodData['image']} />
+            <img src={foodData.image} />
           </div>
           <div className={styles.foodDetail}>
             <Row>
@@ -29,12 +29,12 @@ export default function index() {
                 <h6>İçindekiler</h6>
               </Col>
               <Col xs={9}>
-                <span>{foodData['ingredientsText']}</span>
+                <span>{foodData.ingredientsText}</span>
               </Col>
             </Row>
           </div>
-          {foodData['selectList'] &&
-            foodData['selectList'].map((x) => {
+          {foodData.selectList &&
+            foodData.selectList.map((x) => {
               return (
                 <div className={styles.foodDetail}>
                   <Row>
@@ -48,7 +48,7 @@ export default function index() {
                 </div>
               )
             })}
-          {foodData['ingredients'] && (
+          {foodData.ingredients && (
             <div className={styles.foodDetail}>
               <Row>
                 <Col xs={2}>
@@ -57,7 +57,7 @@ export default function index() {
                   </div>
                 </Col>
                 <Col xs={9}>
-                  {foodData['ingredients'].map((x, i) => {
+                  {foodData.ingredients.map((x, i) => {
                     return (
                       <ToggleButton
                         className={!x.status && styles.noMaterial}
