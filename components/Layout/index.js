@@ -15,23 +15,15 @@ export default function layout({ children }) {
 
   return (
     <div id={styles.layout}>
-      {/* {(toggleModal || accountModal) && (
+      {toggleModal && (
         <div
           onClick={() => {
-            if (toggleModal) {
-              dispatch({ type: 'ToggleModal', action: null })
-            } else {
-              dispatch({
-                type: 'AccountModal',
-                action: { status: false }
-              })
-            }
+            dispatch({ type: 'ToggleModal', action: null })
           }}
-          className={styles.overlay}
+          className="overlay"
         ></div>
       )}
       {toggleModal && <FoodModal />}
-      {accountModal && } */}
 
       <Header></Header>
       <main>{children}</main>

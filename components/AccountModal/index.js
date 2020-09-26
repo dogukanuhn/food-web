@@ -3,10 +3,10 @@ import { Col, Row } from 'react-bootstrap'
 import styles from './account.module.css'
 import TextInput from '../TextInput'
 import Button from '../Button'
-import { useDispatch, useSelector } from 'react-redux'
+
 export default function index({ type = 0 }) {
   const [tab, settab] = useState(type)
-  console.log(tab)
+
   return (
     <div className={styles.modal}>
       <div className={styles.modalInner}>
