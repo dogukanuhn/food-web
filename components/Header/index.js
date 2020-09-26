@@ -15,7 +15,7 @@ export default function Header() {
     <div>
       {modalStatus.status && (
         <div>
-          <AccountModal />{' '}
+          <AccountModal type={modalStatus.type} />{' '}
           <div
             className="overlay"
             onClick={() => setmodalStatus({ status: false })}

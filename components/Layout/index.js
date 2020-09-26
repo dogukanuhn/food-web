@@ -10,9 +10,7 @@ export default function layout({ children }) {
   const toggleModal = useSelector(
     (state) => state['FoodReducer']['modalStatus']
   )
-  const accountModal = useSelector(
-    (state) => state['RootReducer']['accountModal']['status']
-  )
+
   const dispatch = useDispatch()
 
   return (

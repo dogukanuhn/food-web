@@ -4,12 +4,9 @@ import styles from './account.module.css'
 import TextInput from '../TextInput'
 import Button from '../Button'
 import { useDispatch, useSelector } from 'react-redux'
-export default function index() {
-  const tab = useSelector(
-    (state) => state['RootReducer']['accountModal']['type']
-  )
-  const dispatch = useDispatch()
-
+export default function index({ type = 0 }) {
+  const [tab, settab] = useState(type)
+  console.log(tab)
   return (
     <div className={styles.modal}>
       <div className={styles.modalInner}>
@@ -26,17 +23,7 @@ export default function index() {
 
                 <Button>Giriş Yap</Button>
               </form>
-              <Button
-                onClick={() =>
-                  dispatch({
-                    type: 'AccountModal',
-                    action: { status: true, type: 1 }
-                  })
-                }
-              >
-                {' '}
-                Kayıt Ol
-              </Button>
+              <Button onClick={() => settab(1)}> Kayıt Ol</Button>
             </div>
           )}
           {tab === 1 && (
@@ -49,16 +36,7 @@ export default function index() {
                 <TextInput placeholder="Parola Tekrar" />
                 <Button>Kayıt Ol</Button>
               </form>
-              <Button
-                onClick={() =>
-                  dispatch({
-                    type: 'AccountModal',
-                    action: { status: true, type: 0 }
-                  })
-                }
-              >
-                Giriş Yap
-              </Button>
+              <Button onClick={() => settab(0)}>Giriş Yap</Button>
             </div>
           )}
         </div>
