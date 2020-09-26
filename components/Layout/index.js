@@ -17,7 +17,7 @@ export default function layout({ children }) {
 
   return (
     <div id={styles.layout}>
-      {(toggleModal || accountModal) && (
+      {/* {(toggleModal || accountModal) && (
         <div
           onClick={() => {
             if (toggleModal) {
@@ -33,7 +33,7 @@ export default function layout({ children }) {
         ></div>
       )}
       {toggleModal && <FoodModal />}
-      {accountModal && <AccountModal />}
+      {accountModal && } */}
 
       <Header></Header>
       <main>{children}</main>
