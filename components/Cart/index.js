@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './cart.module.css'
 import { ShoppingCart, Close } from '../icons'
 import IconButton from '../IconButton'
@@ -6,18 +6,28 @@ import CartItem from '../CartItem'
 
 import Button from '../Button'
 
-import { Col, Row } from 'react-bootstrap'
 import { useSelector } from 'react-redux'
+import { FaCommentsDollar } from 'react-icons/fa'
 
 export default function index() {
   const [menuState, setMenuState] = useState(false)
 
   const cartItems = useSelector((state) => state['RootReducer']['cart'])
   const cartItemCount = useSelector(
-    (state) => state['RootReducer']['cartTotal']
+    (state) => state['RootReducer']['cartTotalItem']
   )
 
-  console.log(cartItems)
+  const [totalPrice, setTotalPrice] = useState(0)
+
+  useEffect(() => {
+    var total =
+      cartItemCount > 0
+        ? parseFloat(cartItems.reduce((a, b) => a + b.sellPrice, 0)).toFixed(2)
+        : 0
+    console.log(total)
+    setTotalPrice(total)
+  }, [cartItems])
+
   return (
     <div id={styles.cart}>
       <IconButton
@@ -35,15 +45,18 @@ export default function index() {
       >
         <div className={styles.title}>
           <h4>Sepet</h4>
-          <div>
-            <Button className={styles.paymentButton}>Öde</Button>
-          </div>
+          {cartItemCount > 0 && (
+            <div>
+              <Button className={styles.paymentButton}>Öde</Button>
+            </div>
+          )}
         </div>
 
         <div className={styles.cartInner}>
-          {cartItems.map((x) => {
+          {cartItems.map((x, i) => {
             return (
               <CartItem
+                id={i}
                 src={x.image}
                 name={x.name}
                 count={x.count}
@@ -55,7 +68,8 @@ export default function index() {
           })}
         </div>
         <span className={styles.pricing}>
-          <span className={styles.totalText}>Toplam:</span>16.44 ₺
+          <span className={styles.totalText}>Toplam:</span>
+          {totalPrice} ₺
         </span>
       </div>
     </div>

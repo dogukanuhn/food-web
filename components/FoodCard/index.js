@@ -20,9 +20,11 @@ export default function index({ foodData, openModal, className }) {
 
           <span className={styles.sellPrice}>
             {foodData.discount && (
-              <span className={styles.basePrice}>{foodData.basePrice} ₺</span>
+              <span className={styles.basePrice}>
+                {parseFloat(foodData.basePrice).toFixed(2)} ₺
+              </span>
             )}
-            {foodData.sellPrice} ₺
+            {parseFloat(foodData.sellPrice).toFixed(2)} ₺
           </span>
 
           <StarRatings

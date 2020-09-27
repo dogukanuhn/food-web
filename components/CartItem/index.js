@@ -2,7 +2,19 @@ import React from 'react'
 import { Row, Col } from 'react-bootstrap'
 import { Close } from '../icons'
 import styles from './cartitem.module.css'
-export default function index({ src, name, count, price, ingredient, items }) {
+import PropTypes from 'prop-types'
+import { useDispatch } from 'react-redux'
+
+export default function index({
+  id,
+  src,
+  name,
+  count,
+  price,
+  ingredient,
+  items
+}) {
+  const dispatch = useDispatch()
   return (
     <div id={styles.cartItem}>
       <Row className={styles.Row}>
@@ -36,15 +48,32 @@ export default function index({ src, name, count, price, ingredient, items }) {
         <Col xs={3} className="p-0">
           <div className={styles.numberArea}>
             <input type="number" value={count} readOnly />
-            <span className={styles.price}>{price} TL</span>
+            <span className={styles.price}>
+              {parseFloat(price).toFixed(2)} ₺
+            </span>
           </div>
         </Col>
         <Col xs={2}>
-          <span className={styles.cancelButton}>
+          <span
+            className={styles.cancelButton}
+            onClick={() => {
+              dispatch({ type: 'RemoveFromCart', action: id })
+            }}
+          >
             <Close />
           </span>
         </Col>
       </Row>
     </div>
   )
+}
+
+index.propTypes = {
+  id: PropTypes.number,
+  src: PropTypes.string,
+  name: PropTypes.string,
+  count: PropTypes.number,
+  price: PropTypes.number,
+  ingredient: PropTypes.array,
+  items: PropTypes.oneOfType([PropTypes.object, PropTypes.array])
 }

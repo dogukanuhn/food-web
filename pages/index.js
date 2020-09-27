@@ -12,9 +12,9 @@ export default function Home() {
       id: 1,
       image: '/images/burger.jpg',
       name: 'Jet Burger',
-      basePrice: '10.00',
+      basePrice: 10.0,
       discount: true,
-      sellPrice: '8.99',
+      sellPrice: 8.99,
       ingredients: [
         { name: 'Soğan', status: true },
         { name: 'Domates', status: true },
@@ -28,9 +28,9 @@ export default function Home() {
       id: 2,
       image: '/images/taco.jpg',
       name: 'Etli Taco',
-      basePrice: '13.00',
+      basePrice: 13.0,
       discount: false,
-      sellPrice: '13.00',
+      sellPrice: 13.0,
       selectList: [{ name: 'Hamur', data: ['Sert', 'Yumuşak'] }],
       selectedItems: [],
       ingredientsText:
@@ -40,9 +40,9 @@ export default function Home() {
       id: 3,
       image: '/images/pizza.jpg',
       name: 'Barbekü Soslu Tavuklu Pizza',
-      basePrice: '23.00',
+      basePrice: 23.0,
       discount: false,
-      sellPrice: '23.00',
+      sellPrice: 23.0,
       selectedItems: [],
       selectList: [{ name: 'Hamur', data: ['Kalın', 'İnce'] }],
       ingredientsText: 'Tavuk, Barbekü sosu,  Hamur, beyaz un, domates sosu'
@@ -51,10 +51,10 @@ export default function Home() {
       id: 4,
       image: '/images/nachos.jpg',
       name: 'Nachos',
-      basePrice: '17.00',
+      basePrice: 17.0,
       selectedItems: [],
       discount: true,
-      sellPrice: '15.00',
+      sellPrice: 15.0,
       ingredientsText: 'Tavuk, Barbekü sosu,  Hamur, beyaz un, domates sosu'
     }
   ])
