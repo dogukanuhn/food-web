@@ -20,6 +20,7 @@ export default function Home() {
         { name: 'Domates', status: true },
         { name: 'Marul', status: true }
       ],
+      selectedItems: [],
       ingredientsText:
         'Kuru soğan, buğday unu, tam buğday unu. Sarımsak, tam yağlı yoğurt, pul biber, tereyağı, dana kıyma, karabiber'
     },
@@ -31,6 +32,7 @@ export default function Home() {
       discount: false,
       sellPrice: '13.00',
       selectList: [{ name: 'Hamur', data: ['Sert', 'Yumuşak'] }],
+      selectedItems: [],
       ingredientsText:
         'Kuru soğan, buğday unu, tam buğday unu. Sarımsak, tam yağlı yoğurt, pul biber, tereyağı, dana kıyma, karabiber'
     },
@@ -41,6 +43,7 @@ export default function Home() {
       basePrice: '23.00',
       discount: false,
       sellPrice: '23.00',
+      selectedItems: [],
       selectList: [{ name: 'Hamur', data: ['Kalın', 'İnce'] }],
       ingredientsText: 'Tavuk, Barbekü sosu,  Hamur, beyaz un, domates sosu'
     },
@@ -49,6 +52,7 @@ export default function Home() {
       image: '/images/nachos.jpg',
       name: 'Nachos',
       basePrice: '17.00',
+      selectedItems: [],
       discount: true,
       sellPrice: '15.00',
       ingredientsText: 'Tavuk, Barbekü sosu,  Hamur, beyaz un, domates sosu'

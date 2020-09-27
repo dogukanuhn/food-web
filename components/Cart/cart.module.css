@@ -31,6 +31,11 @@
     justify-content: center;
   }
   .cartList {
+    .cartInner {
+      overflow-y: scroll;
+      height: 72%;
+      overflow-x: hidden;
+    }
     .paymentButton {
       padding: 5px 15px;
       background: white;

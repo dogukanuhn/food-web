@@ -7,18 +7,19 @@ import Button from '../Button'
 
 import styles from './foodmodal.module.css'
 export default function index({ data, closeModal }) {
-  // const foodData = useSelector(
-  //   (state) => state['FoodReducer']['modalFoodDetail']
-  // )
   const [foodData, setfoodData] = useState(data)
-  var selectedItems = []
 
   var addToCart = () => {
     foodData['count'] = 1
-    foodData['selectedItems'] = selectedItems
-
     dispatch({ type: 'AddToCart', action: foodData })
     closeModal()
+  }
+
+  const handleSelect = (e, i) => {
+    setfoodData({
+      ...foodData,
+      selectedItems: { ...foodData.selectedItems, [i]: e.target.value }
+    })
   }
 
   const dispatch = useDispatch()
@@ -57,7 +58,12 @@ export default function index({ data, closeModal }) {
                       <h6>{x.name}</h6>
                     </Col>
                     <Col xs={9}>
-                      <Select value={selectedItems[i]} data={x.data} />
+                      <Select
+                        selectOnChange={(e) => {
+                          handleSelect(e, i)
+                        }}
+                        data={x.data}
+                      />
                     </Col>
                   </Row>
                 </div>

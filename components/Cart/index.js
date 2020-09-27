@@ -40,18 +40,20 @@ export default function index() {
           </div>
         </div>
 
-        {cartItems.map((x) => {
-          return (
-            <CartItem
-              src={x.image}
-              name={x.name}
-              count={x.count}
-              price={x.sellPrice}
-              ingredient={x.ingredients}
-              items={x.selectedItems}
-            />
-          )
-        })}
+        <div className={styles.cartInner}>
+          {cartItems.map((x) => {
+            return (
+              <CartItem
+                src={x.image}
+                name={x.name}
+                count={x.count}
+                price={x.sellPrice}
+                ingredient={x.ingredients}
+                items={x.selectedItems}
+              />
+            )
+          })}
+        </div>
         <span className={styles.pricing}>
           <span className={styles.totalText}>Toplam:</span>16.44 ₺
         </span>
