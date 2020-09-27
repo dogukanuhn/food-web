@@ -15,16 +15,6 @@ export default function layout({ children }) {
 
   return (
     <div id={styles.layout}>
-      {toggleModal && (
-        <div
-          onClick={() => {
-            dispatch({ type: 'ToggleModal', action: null })
-          }}
-          className="overlay"
-        ></div>
-      )}
-      {toggleModal && <FoodModal />}
-
       <Header></Header>
       <main>{children}</main>
       <Cart />

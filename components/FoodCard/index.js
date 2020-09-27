@@ -6,17 +6,14 @@ import StarRatings from 'react-star-ratings'
 import cn from 'classnames'
 import { useDispatch } from 'react-redux'
 
-export default function index({ foodData, className }) {
+export default function index({ foodData, openModal, className }) {
   const dispatch = useDispatch()
   return (
     <div className={cn(styles.main, className)}>
       <img src={foodData.image} alt="" />
       <div className={styles.detail}>
         <div className={styles.inner}>
-          <IconButton
-            className={styles.cartButton}
-            click={() => dispatch({ type: 'ToggleModal', action: foodData })}
-          >
+          <IconButton className={styles.cartButton} click={openModal}>
             <FaCartPlus />
           </IconButton>
           <h4>{foodData.name}</h4>

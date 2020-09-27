@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Col, Row } from 'react-bootstrap'
 import Select from '../Select'
@@ -6,19 +6,19 @@ import ToggleButton from '../ToggleButton'
 import Button from '../Button'
 
 import styles from './foodmodal.module.css'
-export default function index() {
-  const foodData = useSelector(
-    (state) => state['FoodReducer']['modalFoodDetail']
-  )
+export default function index({ data, closeModal }) {
+  // const foodData = useSelector(
+  //   (state) => state['FoodReducer']['modalFoodDetail']
+  // )
+  const [foodData, setfoodData] = useState(data)
   var selectedItems = []
+
   var addToCart = () => {
     foodData['count'] = 1
     foodData['selectedItems'] = selectedItems
 
     dispatch({ type: 'AddToCart', action: foodData })
-    dispatch({
-      type: 'ToggleModal'
-    })
+    closeModal()
   }
 
   const dispatch = useDispatch()
@@ -72,15 +72,17 @@ export default function index() {
                   </div>
                 </Col>
                 <Col xs={9}>
+                  {console.log(foodData)}
                   {foodData.ingredients.map((x, i) => {
                     return (
                       <ToggleButton
                         className={!x.status && styles.noMaterial}
                         click={() => {
-                          x.status = !x.status
-                          dispatch({
-                            type: 'ChangeIngredientStatus',
-                            action: { id: i, value: x.status }
+                          setfoodData({
+                            ...foodData,
+                            ingredients: foodData.ingredients.map((y, z) =>
+                              i === z ? { ...y, status: !x.status } : y
+                            )
                           })
                         }}
                       >
