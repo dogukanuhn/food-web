@@ -1,4 +1,4 @@
-const initialState = { cart: [] }
+const initialState = { cart: [], cartTotal: 0 }
 
 export default function reducer2(state = initialState, outAction) {
   const { type, action } = outAction
@@ -7,7 +7,8 @@ export default function reducer2(state = initialState, outAction) {
     case 'AddToCart':
       return {
         ...state,
-        cart: [...state.cart, action]
+        cart: [...state.cart, action],
+        cartTotal: state.cartTotal + 1
       }
 
     default:

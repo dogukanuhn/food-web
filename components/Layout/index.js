@@ -1,18 +1,9 @@
 import Header from '../Header'
 import Footer from '../Footer'
-import FoodModal from '../FoodModal'
-import AccountModal from '../AccountModal'
 
 import Cart from '../Cart'
-import { useDispatch, useSelector } from 'react-redux'
 import styles from './layout.module.css'
 export default function layout({ children }) {
-  const toggleModal = useSelector(
-    (state) => state['FoodReducer']['modalStatus']
-  )
-
-  const dispatch = useDispatch()
-
   return (
     <div id={styles.layout}>
       <Header></Header>

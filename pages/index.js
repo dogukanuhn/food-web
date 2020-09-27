@@ -3,8 +3,8 @@ import Banner from '../components/Banner'
 import FoodSlider from '../components/FoodSlider'
 import CategoryList from '../components/CategoryList'
 import Campaign from '../components/Campaign'
-import { useSelector } from 'react-redux'
-import { useEffect, useState } from 'react'
+
+import { useState } from 'react'
 
 export default function Home() {
   const [populerFoods, setpopulerFoods] = useState([

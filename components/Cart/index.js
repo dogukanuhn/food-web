@@ -13,6 +13,10 @@ export default function index() {
   const [menuState, setMenuState] = useState(false)
 
   const cartItems = useSelector((state) => state['RootReducer']['cart'])
+  const cartItemCount = useSelector(
+    (state) => state['RootReducer']['cartTotal']
+  )
+
   console.log(cartItems)
   return (
     <div id={styles.cart}>
@@ -21,6 +25,9 @@ export default function index() {
         click={() => setMenuState(!menuState)}
       >
         {menuState ? <Close /> : <ShoppingCart />}
+        <div className={styles.count}>
+          <span>{cartItemCount}</span>
+        </div>
       </IconButton>
       <div
         className={styles.cartList}
