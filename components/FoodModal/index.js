@@ -78,7 +78,6 @@ export default function index({ data, closeModal }) {
                   </div>
                 </Col>
                 <Col xs={9}>
-                  {console.log(foodData)}
                   {foodData.ingredients.map((x, i) => {
                     return (
                       <ToggleButton

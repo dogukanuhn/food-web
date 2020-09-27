@@ -22,9 +22,11 @@ export default function index() {
   useEffect(() => {
     var total =
       cartItemCount > 0
-        ? parseFloat(cartItems.reduce((a, b) => a + b.sellPrice, 0)).toFixed(2)
+        ? parseFloat(
+            cartItems.reduce((a, b) => a + b.sellPrice * b.count, 0)
+          ).toFixed(2)
         : 0
-    console.log(total)
+
     setTotalPrice(total)
   }, [cartItems])
 

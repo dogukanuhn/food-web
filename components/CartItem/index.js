@@ -14,7 +14,17 @@ export default function index({
   ingredient,
   items
 }) {
+  // Select your input element.
+
   const dispatch = useDispatch()
+
+  const changeCount = (e) => {
+    dispatch({
+      type: 'ChangeFoodCount',
+      action: { id: id, count: e.target.value }
+    })
+  }
+
   return (
     <div id={styles.cartItem}>
       <Row className={styles.Row}>
@@ -47,7 +57,18 @@ export default function index({
         </Col>
         <Col xs={3} className="p-0">
           <div className={styles.numberArea}>
-            <input type="number" value={count} readOnly />
+            <input
+              min="0"
+              type="number"
+              value={count}
+              onInput={(e) => {
+                e.target.value =
+                  !!e.target.value && Math.abs(e.target.value) >= 0
+                    ? Math.abs(e.target.value)
+                    : null
+              }}
+              onChange={changeCount}
+            />
             <span className={styles.price}>
               {parseFloat(price).toFixed(2)} ₺
             </span>
