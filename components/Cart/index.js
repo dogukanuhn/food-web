@@ -7,8 +7,8 @@ import CartItem from '../CartItem'
 import Button from '../Button'
 
 import { useSelector } from 'react-redux'
-import { FaCommentsDollar } from 'react-icons/fa'
 
+import { useRouter } from 'next/router'
 export default function index() {
   const [menuState, setMenuState] = useState(false)
 
@@ -16,7 +16,7 @@ export default function index() {
   const cartItemCount = useSelector(
     (state) => state['RootReducer']['cartTotalItem']
   )
-
+  const router = useRouter()
   const [totalPrice, setTotalPrice] = useState(0)
 
   useEffect(() => {
@@ -49,7 +49,14 @@ export default function index() {
           <h4>Sepet</h4>
           {cartItemCount > 0 && (
             <div>
-              <Button className={styles.paymentButton}>Öde</Button>
+              <Button
+                className={styles.paymentButton}
+                onClick={() => {
+                  router.push('sepet')
+                }}
+              >
+                Öde
+              </Button>
             </div>
           )}
         </div>

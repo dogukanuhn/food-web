@@ -4,7 +4,7 @@ import { Close } from '../icons'
 import styles from './cartitem.module.css'
 import PropTypes from 'prop-types'
 import { useDispatch } from 'react-redux'
-
+import cn from 'classnames'
 export default function index({
   id,
   src,
@@ -12,7 +12,8 @@ export default function index({
   count,
   price,
   ingredient,
-  items
+  items,
+  priceClass
 }) {
   // Select your input element.
 
@@ -69,7 +70,7 @@ export default function index({
               }}
               onChange={changeCount}
             />
-            <span className={styles.price}>
+            <span className={cn(styles.price, priceClass)}>
               {parseFloat(price).toFixed(2)} ₺
             </span>
           </div>

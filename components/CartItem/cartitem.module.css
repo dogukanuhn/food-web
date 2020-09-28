@@ -2,6 +2,8 @@
   padding: 0.7rem 0.5rem;
   img {
     border-radius: 10px;
+    height: 3rem;
+    object-fit: cover;
   }
   .Row {
     align-items: center;
