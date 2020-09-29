@@ -10,7 +10,7 @@ export default function Footer() {
         <Row>
           <Col xs={3}>
             <div className={styles.brand}>
-              <LogoText />
+              <img src="/images/logo.png" alt="" srcset="" />
             </div>
             <div className={styles.copyright}>Copright 2020 -- Nuans </div>
             <div className={styles.social}>

@@ -6,7 +6,7 @@
   justify-content: space-between;
   align-items: center;
   .logoArea {
-    svg {
+    img {
       width: 100px;
       height: auto;
     }

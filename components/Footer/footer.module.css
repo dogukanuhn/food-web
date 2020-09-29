@@ -5,7 +5,7 @@
   border-radius: 50px 50px 0 0;
   box-shadow: 0 0 20px 0 rgb(99 99 99 / 0.4);
   .brand {
-    svg {
+    img {
       width: 150px;
       height: auto;
     }

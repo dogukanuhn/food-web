@@ -26,7 +26,7 @@ export default function Header() {
         <div className={styles.logoArea}>
           <Link href="/">
             <a>
-              <BrandLogo />
+              <img src="/images/logo.png" />
             </a>
           </Link>
         </div>
