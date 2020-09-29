@@ -1,28 +1,71 @@
-.cart {
-  background: white;
-  padding: 1rem;
-  box-shadow: 0 0 12px 0 rgb(185 185 185 / 35%);
-  border-radius: 10px;
-  margin-top: 2rem;
-  img {
-    height: 7rem !important ;
-  }
-  .price {
-    font-size: 1.1rem !important;
-  }
+#cartPage {
+  .card {
+    background: white;
+    padding: 1rem;
+    box-shadow: 0 0 12px 0 rgb(185 185 185 / 35%);
+    border-radius: 10px;
+    margin-top: 2rem;
+    img {
+      height: 7rem !important ;
+    }
+    .price {
+      font-size: 1.1rem !important;
+    }
 
-  .pricing {
+    .pricing {
+      display: flex;
+      padding: 1.2rem 0.5rem;
+
+      justify-content: space-between;
+      align-items: center;
+      .promotionArea {
+        display: flex;
+      }
+      .pricingText {
+        font-size: 1.3rem;
+        font-weight: 600;
+      }
+    }
+  }
+  .titleArea {
+    .addButton {
+      background: var(--primary-color);
+      fill: white;
+      stroke-width: 3;
+    }
     display: flex;
-    padding: 1.2rem 0.5rem;
-
     justify-content: space-between;
     align-items: center;
-    .promotionArea {
+    margin-top: 2rem;
+  }
+
+  .addressCard {
+    cursor: pointer;
+
+    .addressTitle {
       display: flex;
+      align-items: center;
+      border-bottom: 2px solid rgb(229 229 229 / 0.7);
+      padding: 0.7rem 0;
+      svg {
+        fill: var(--secondary-text-color);
+        font-size: 1.2rem;
+      }
+      h5 {
+        font-weight: 600;
+        padding-left: 1rem;
+        margin: 0;
+      }
     }
-    .pricingText {
-      font-size: 1.3rem;
-      font-weight: 600;
+  }
+  .active {
+    background: #ffaf5d;
+    color: white;
+    .addressTitle {
+      border-color: rgb(255 255 255 / 0.7);
+    }
+    svg {
+      fill: white !important;
     }
   }
 }

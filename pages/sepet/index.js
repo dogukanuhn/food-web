@@ -3,11 +3,16 @@ import { useSelector } from 'react-redux'
 import Layout from '../../components/Layout'
 import CartItem from '../../components/CartItem'
 import TextInput from '../../components/TextInput'
+import IconButton from '../../components/IconButton'
+import { Plus, Home, Business } from '../../components/icons'
 import Button from '../../components/Button'
 import { useRouter } from 'next/router'
 import styles from './cartpage.module.css'
+import cn from 'classnames'
+
 export default function index() {
   const cartItems = useSelector((state) => state['RootReducer']['cart'])
+  const [selectedAddress, setSelectedAddress] = useState(0)
   const cartItemCount = useSelector(
     (state) => state['RootReducer']['cartTotalItem']
   )
@@ -28,9 +33,9 @@ export default function index() {
 
   return (
     <Layout>
-      <div className="container">
+      <div className="container" id={styles.cartPage}>
         <h1>Sepet</h1>
-        <div className={styles.cart}>
+        <div className={styles.card}>
           {cartItems.map((x, i) => {
             return (
               <CartItem
@@ -55,6 +60,38 @@ export default function index() {
               <span className={styles.totalText}>Toplam: </span>
               {totalPrice} ₺
             </span>
+          </div>
+        </div>
+        <div className={styles.titleArea}>
+          <h3>Siparişin Teslim Edileceği Adres</h3>
+          <IconButton className={styles.addButton}>
+            <Plus />
+          </IconButton>
+        </div>
+        <div
+          className={cn(
+            styles.card,
+            styles.addressCard,
+            selectedAddress === 0 && styles.active
+          )}
+          onClick={() => setSelectedAddress(0)}
+        >
+          <div className={styles.addressTitle}>
+            <Home />
+            <h5>Ev Adresi</h5>
+          </div>
+        </div>
+        <div
+          className={cn(
+            styles.card,
+            styles.addressCard,
+            selectedAddress === 1 && styles.active
+          )}
+          onClick={() => setSelectedAddress(1)}
+        >
+          <div className={styles.addressTitle}>
+            <Business />
+            <h5>İş Adresi</h5>
           </div>
         </div>
       </div>
