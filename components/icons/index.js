@@ -1,6 +1,8 @@
+export { default as Arrowbottom } from './Arrowbottom'
 export { default as Burger } from './Burger'
 export { default as Business } from './Business'
 export { default as Close } from './Close'
+export { default as CreditCard } from './CreditCard'
 export { default as FacebookBrands } from './FacebookBrands'
 export { default as FoodServing } from './FoodServing'
 export { default as Home } from './Home'

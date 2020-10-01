@@ -4,15 +4,23 @@ import Layout from '../../components/Layout'
 import CartItem from '../../components/CartItem'
 import TextInput from '../../components/TextInput'
 import IconButton from '../../components/IconButton'
-import { Plus, Home, Business } from '../../components/icons'
+import {
+  Plus,
+  Home,
+  Business,
+  CreditCard,
+  Arrowbottom
+} from '../../components/icons'
 import Button from '../../components/Button'
 import { useRouter } from 'next/router'
 import styles from './cartpage.module.css'
 import cn from 'classnames'
-
+import { Row, Col } from 'react-bootstrap'
 export default function index() {
   const cartItems = useSelector((state) => state['RootReducer']['cart'])
   const [selectedAddress, setSelectedAddress] = useState(0)
+  const [selectedPayment, setSelectedPayment] = useState(0)
+
   const cartItemCount = useSelector(
     (state) => state['RootReducer']['cartTotalItem']
   )
@@ -80,6 +88,32 @@ export default function index() {
             <Home />
             <h5>Ev Adresi</h5>
           </div>
+          <div className={styles.adressInner}>
+            <div className="addressItem">
+              <Row>
+                <Col xs={2}>
+                  <div className="d-flex">
+                    <h6>Alıcı Adı</h6>
+                  </div>
+                </Col>
+                <Col xs={9}>
+                  <span>Berkay Doğukan Urhan</span>
+                </Col>
+              </Row>
+            </div>
+            <div className="addressItem">
+              <Row>
+                <Col xs={2}>
+                  <div className="d-flex">
+                    <h6>Teslim Adresi</h6>
+                  </div>
+                </Col>
+                <Col xs={9}>
+                  <span>4219 Davis Avenue Fremont California</span>
+                </Col>
+              </Row>
+            </div>
+          </div>
         </div>
         <div
           className={cn(
@@ -92,6 +126,71 @@ export default function index() {
           <div className={styles.addressTitle}>
             <Business />
             <h5>İş Adresi</h5>
+          </div>
+          <div className={styles.adressInner}>
+            <div className="addressItem">
+              <Row>
+                <Col xs={2}>
+                  <div className="d-flex">
+                    <h6>Alıcı Adı</h6>
+                  </div>
+                </Col>
+                <Col xs={9}>
+                  <span>Berkay Doğukan Urhan</span>
+                </Col>
+              </Row>
+            </div>
+            <div className="addressItem">
+              <Row>
+                <Col xs={2}>
+                  <div className="d-flex">
+                    <h6>Teslim Adresi</h6>
+                  </div>
+                </Col>
+                <Col xs={9}>
+                  <span>4219 Davis Avenue Fremont California</span>
+                </Col>
+              </Row>
+            </div>
+          </div>
+        </div>
+        <div className={styles.titleArea}>
+          <h3>Ödeme Yöntemleri</h3>
+        </div>
+        <div className={styles.paymentOptions}>
+          <div
+            className={selectedPayment === 0 && styles.activePayment}
+            onClick={() => setSelectedPayment(0)}
+          >
+            <div className={styles.card}>
+              <div className={styles.addressTitle}>
+                <div className="d-flex">
+                  <CreditCard />
+                  <h5>İş Adresi</h5>
+                </div>
+                <IconButton className={styles.arrow}>
+                  <Arrowbottom />
+                </IconButton>
+              </div>
+            </div>
+            <div className={styles.paymentContent}></div>
+          </div>
+          <div
+            className={selectedPayment === 1 && styles.activePayment}
+            onClick={() => setSelectedPayment(1)}
+          >
+            <div className={styles.card}>
+              <div className={styles.addressTitle}>
+                <div className="d-flex">
+                  <CreditCard />
+                  <h5>İş Adresi</h5>
+                </div>
+                <IconButton className={styles.arrow}>
+                  <Arrowbottom />
+                </IconButton>
+              </div>
+            </div>
+            <div className={styles.paymentContent}></div>
           </div>
         </div>
       </div>

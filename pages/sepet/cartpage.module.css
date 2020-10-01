@@ -41,21 +41,31 @@
 
   .addressCard {
     cursor: pointer;
-
-    .addressTitle {
-      display: flex;
-      align-items: center;
-      border-bottom: 2px solid rgb(229 229 229 / 0.7);
-      padding: 0.7rem 0;
-      svg {
-        fill: var(--secondary-text-color);
-        font-size: 1.2rem;
-      }
-      h5 {
+    .adressInner {
+      padding: 1rem 0;
+      h6 {
         font-weight: 600;
-        padding-left: 1rem;
-        margin: 0;
       }
+      h6::after {
+        content: ':';
+        position: absolute;
+        right: 0;
+      }
+    }
+  }
+  .addressTitle {
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid rgb(229 229 229 / 0.7);
+    padding: 0.7rem 0;
+    svg {
+      fill: var(--secondary-text-color);
+      font-size: 1.2rem;
+    }
+    h5 {
+      font-weight: 600;
+      padding-left: 1rem;
+      margin: 0;
     }
   }
   .active {
@@ -66,6 +76,38 @@
     }
     svg {
       fill: white !important;
+    }
+  }
+  .paymentOptions {
+    .card {
+      cursor: pointer;
+    }
+    .activePayment {
+      .paymentContent {
+        height: 200px;
+      }
+      .arrow {
+        svg {
+          transition: all 0.5s ease-out;
+          transform: rotateZ(180deg);
+        }
+      }
+    }
+    .paymentContent {
+      background: #f7f7f7;
+      border-radius: 10px;
+      border: 1px solid #e6e6e6;
+    }
+    .addressTitle {
+      padding: 0;
+      border: none;
+      display: flex;
+      justify-content: space-between;
+      .arrow {
+        svg {
+          transition: all 0.5s ease-out;
+        }
+      }
     }
   }
 }
