@@ -27,24 +27,24 @@ export default function index({
       <div className={styles.adressInner}>
         <div className="addressItem">
           <Row>
-            <Col xs={2}>
+            <Col xs={3}>
               <div className="d-flex">
                 <h6>Alıcı Adı</h6>
               </div>
             </Col>
-            <Col xs={9}>
+            <Col xs={8}>
               <span>{name}</span>
             </Col>
           </Row>
         </div>
         <div className="addressItem">
           <Row>
-            <Col xs={2}>
+            <Col xs={3}>
               <div className="d-flex">
                 <h6>Teslim Adresi</h6>
               </div>
             </Col>
-            <Col xs={9}>
+            <Col xs={8}>
               <span> {addres}</span>
             </Col>
           </Row>

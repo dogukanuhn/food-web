@@ -5,6 +5,7 @@ import styles from './cartitem.module.css'
 import PropTypes from 'prop-types'
 import { useDispatch } from 'react-redux'
 import cn from 'classnames'
+import { useRouter } from 'next/router'
 export default function index({
   id,
   src,
@@ -16,7 +17,7 @@ export default function index({
   priceClass
 }) {
   // Select your input element.
-
+  const router = useRouter()
   const dispatch = useDispatch()
 
   const changeCount = (e) => {
@@ -32,7 +33,7 @@ export default function index({
         <Col xs={2} className="pr-0">
           <img src={src} alt="" />
         </Col>
-        <Col xs={5}>
+        <Col xs={router.pathname === '/sepet' ? 4 : 5}>
           <span className={styles.foodName}>{name}</span>
           {ingredient && (
             <div>
@@ -56,7 +57,7 @@ export default function index({
             </div>
           )}
         </Col>
-        <Col xs={3} className="p-0">
+        <Col xs={router.pathname === '/sepet' ? 4 : 3} className="p-0">
           <div className={styles.numberArea}>
             <input
               min="0"

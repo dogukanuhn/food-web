@@ -75,123 +75,154 @@ export default function index() {
           </div>
         </Card>
 
-        <div className={styles.titleArea}>
-          <h3>Siparişin Teslim Edileceği Adres</h3>
-          <IconButton className={styles.addButton}>
-            <Plus />
-          </IconButton>
-        </div>
+        <Row>
+          <Col xs={6}>
+            <div className={styles.titleArea}>
+              <h3>Teslim Adresi</h3>
+              <IconButton className={styles.addButton}>
+                <Plus />
+              </IconButton>
+            </div>
 
-        <AddressCard
-          icon={<Home />}
-          name="Berkay Doğukan Urhan"
-          addres="4219 Davis Avenue Fremont California"
-          type="Ev Adresi"
-          onClick={() => setSelectedAddress(0)}
-          isSelected={selectedAddress === 0}
-        />
-        <AddressCard
-          icon={<Home />}
-          name="Berkay Doğukan Urhan"
-          addres="4219 Davis Avenue Fremont California"
-          type="Ev Adresi"
-          click={() => setSelectedAddress(1)}
-          isSelected={selectedAddress === 1}
-        />
-        <div className={styles.titleArea}>
-          <h3>Sipariş Notunuz</h3>
-        </div>
+            <Row>
+              <Col xs={12}>
+                <AddressCard
+                  icon={<Home />}
+                  name="Berkay Doğukan Urhan"
+                  addres="4219 Davis Avenue Fremont California"
+                  type="Ev Adresi"
+                  onClick={() => setSelectedAddress(0)}
+                  isSelected={selectedAddress === 0}
+                />
+              </Col>
+              <Col xs={12}>
+                <AddressCard
+                  icon={<Business />}
+                  name="Berkay Doğukan Urhan"
+                  addres="4219 Davis Avenue Fremont California"
+                  type="İş Adresi"
+                  click={() => setSelectedAddress(1)}
+                  isSelected={selectedAddress === 1}
+                />
+              </Col>
+            </Row>
+          </Col>
+          <Col xs={6}>
+            <div className={styles.titleArea}>
+              <h3>Sipariş Notunuz</h3>
+            </div>
 
-        <div className="noteArea">
-          <Card>
-            <TextArea placeholder="(Var ise) Sipariş ile ilgili notunuz..." />
-          </Card>
-        </div>
+            <div className={styles.noteArea}>
+              <Card>
+                <TextArea
+                  placeholder="(Var ise) Sipariş ile ilgili notunuz..."
+                  className={styles.customTextArea}
+                />
+              </Card>
+            </div>
+          </Col>
+        </Row>
 
         <div className={styles.titleArea}>
           <h3>Ödeme Yöntemleri</h3>
         </div>
 
         <div className={styles.paymentOptions}>
-          <div
-            className={selectedPayment === 0 && styles.activePayment}
-            onClick={() => setSelectedPayment(0)}
-          >
-            <Card className={styles.card}>
-              <div className={styles.addressTitle}>
-                <div className="d-flex">
-                  <CreditCard />
-                  <h5>Online Ödeme</h5>
+          <Row>
+            <Col xs={6}>
+              <div
+                className={selectedPayment === 0 && styles.activePayment}
+                onClick={() => setSelectedPayment(0)}
+              >
+                <Card className={styles.card}>
+                  <div className={styles.addressTitle}>
+                    <div className="d-flex">
+                      <CreditCard />
+                      <h5>Online Ödeme</h5>
+                    </div>
+                    <IconButton className={styles.arrow}>
+                      <Arrowbottom />
+                    </IconButton>
+                  </div>
+                </Card>
+                <div className={styles.paymentContent}>
+                  <div className={styles.creditCard}>
+                    <form>
+                      <Form.Row>
+                        <Col xs={12}>
+                          <TextInput placeholder="Kredi Kartı Numarası" />
+                        </Col>
+                        <Col xs={6}>
+                          <TextInput placeholder="MM / YY" />
+                        </Col>
+                        <Col xs={6}>
+                          <TextInput placeholder="CVV" />
+                        </Col>
+                        <Col xs={12}>
+                          <div className={styles.radio}>
+                            <input
+                              type="checkbox"
+                              id="3dsecure"
+                              name="payment"
+                              value="3dsecure"
+                            />
+                            <label for="3dsecure">3D Secure</label>
+                          </div>
+                        </Col>
+                      </Form.Row>
+                    </form>
+                  </div>
                 </div>
-                <IconButton className={styles.arrow}>
-                  <Arrowbottom />
-                </IconButton>
               </div>
-            </Card>
-            <div className={styles.paymentContent}>
-              <div className={styles.creditCard}>
-                <form>
-                  <Form.Row>
-                    <Col xs={12}>
-                      <TextInput placeholder="Kredi Kartı Numarası" />
-                    </Col>
-                    <Col xs={6}>
-                      <TextInput placeholder="MM / YY" />
-                    </Col>
-                    <Col xs={6}>
-                      <TextInput placeholder="CVV" />
-                    </Col>
-                    <Col xs={12}>
-                      <div className={styles.radio}>
-                        <input
-                          type="checkbox"
-                          id="nakit"
-                          name="payment"
-                          value="nakit"
-                        />
-                        <label for="nakit">3D Secure</label>
-                      </div>
-                    </Col>
-                  </Form.Row>
-                </form>
-              </div>
-            </div>
-          </div>
-          <div
-            className={selectedPayment === 1 && styles.activePayment}
-            onClick={() => setSelectedPayment(1)}
-          >
-            <Card className={styles.card}>
-              <div className={styles.addressTitle}>
-                <div className="d-flex">
-                  <CreditCard />
-                  <h5>Kapıda Ödeme</h5>
+            </Col>
+            <Col xs={6}>
+              {' '}
+              <div
+                className={selectedPayment === 1 && styles.activePayment}
+                onClick={() => setSelectedPayment(1)}
+              >
+                <Card className={styles.card}>
+                  <div className={styles.addressTitle}>
+                    <div className="d-flex">
+                      <CreditCard />
+                      <h5>Kapıda Ödeme</h5>
+                    </div>
+                    <IconButton className={styles.arrow}>
+                      <Arrowbottom />
+                    </IconButton>
+                  </div>
+                </Card>
+                <div className={styles.paymentContent}>
+                  <div className={styles.radio}>
+                    <input
+                      type="radio"
+                      id="nakit"
+                      name="payment"
+                      value="nakit"
+                    />
+                    <label for="nakit">
+                      Nakit <span className={styles.muted}>(Nakit ödeme)</span>
+                    </label>
+                  </div>
+                  <div className={styles.radio}>
+                    <input
+                      type="radio"
+                      id="kredi"
+                      name="payment"
+                      value="kredi"
+                    />
+                    <label for="kredi">
+                      Kredi Kartı{' '}
+                      <span className={styles.muted}>
+                        (Sipariş tesliminde kredi kartı / banka kartı ile ödeme)
+                      </span>
+                    </label>
+                  </div>
                 </div>
-                <IconButton className={styles.arrow}>
-                  <Arrowbottom />
-                </IconButton>
               </div>
-            </Card>
-            <div className={styles.paymentContent}>
-              <div className={styles.radio}>
-                <input type="radio" id="nakit" name="payment" value="nakit" />
-                <label for="nakit">
-                  Nakit <span className={styles.muted}>(Nakit ödeme)</span>
-                </label>
-              </div>
-              <div className={styles.radio}>
-                <input type="radio" id="kredi" name="payment" value="kredi" />
-                <label for="kredi">
-                  Kredi Kartı{' '}
-                  <span className={styles.muted}>
-                    (Sipariş tesliminde kredi kartı / banka kartı ile ödeme)
-                  </span>
-                </label>
-              </div>
-            </div>
-          </div>
+            </Col>
+          </Row>
         </div>
-
         <div className={styles.buttonArea}>
           <Button className={styles.buyButton}>Satın Al</Button>
         </div>
