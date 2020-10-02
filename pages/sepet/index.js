@@ -5,6 +5,7 @@ import CartItem from '../../components/CartItem'
 import TextInput from '../../components/TextInput'
 import AddressCard from '../../components/AddressCard'
 import Card from '../../components/Card'
+import TextArea from '../../components/TextArea'
 
 import IconButton from '../../components/IconButton'
 import {
@@ -97,6 +98,15 @@ export default function index() {
           click={() => setSelectedAddress(1)}
           isSelected={selectedAddress === 1}
         />
+        <div className={styles.titleArea}>
+          <h3>Sipariş Notunuz</h3>
+        </div>
+
+        <div className="noteArea">
+          <Card>
+            <TextArea placeholder="(Var ise) Sipariş ile ilgili notunuz..." />
+          </Card>
+        </div>
 
         <div className={styles.titleArea}>
           <h3>Ödeme Yöntemleri</h3>
@@ -132,7 +142,15 @@ export default function index() {
                       <TextInput placeholder="CVV" />
                     </Col>
                     <Col xs={12}>
-                      <Form.Check type="checkbox" label="3D Secure" />
+                      <div className={styles.radio}>
+                        <input
+                          type="checkbox"
+                          id="nakit"
+                          name="payment"
+                          value="nakit"
+                        />
+                        <label for="nakit">3D Secure</label>
+                      </div>
                     </Col>
                   </Form.Row>
                 </form>
