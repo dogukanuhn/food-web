@@ -1,10 +1,5 @@
 #cartPage {
   .card {
-    background: white;
-    padding: 1rem;
-    box-shadow: 0 0 12px 0 rgb(185 185 185 / 35%);
-    border-radius: 10px;
-    margin-top: 2rem;
     img {
       height: 7rem !important ;
     }
@@ -39,64 +34,46 @@
     margin-top: 2rem;
   }
 
-  .addressCard {
-    cursor: pointer;
-    .adressInner {
-      padding: 1rem 0;
-      h6 {
-        font-weight: 600;
-      }
-      h6::after {
-        content: ':';
-        position: absolute;
-        right: 0;
-      }
-    }
-  }
-  .addressTitle {
-    display: flex;
-    align-items: center;
-    border-bottom: 2px solid rgb(229 229 229 / 0.7);
-    padding: 0.7rem 0;
-    svg {
-      fill: var(--secondary-text-color);
-      font-size: 1.2rem;
-    }
-    h5 {
-      font-weight: 600;
-      padding-left: 1rem;
-      margin: 0;
-    }
-  }
-  .active {
-    background: #ffaf5d;
-    color: white;
-    .addressTitle {
-      border-color: rgb(255 255 255 / 0.7);
-    }
-    svg {
-      fill: white !important;
-    }
-  }
   .paymentOptions {
+    .addressTitle {
+      display: flex;
+      align-items: center;
+      border-bottom: 2px solid rgb(229 229 229 / 0.7);
+      padding: 0.7rem 0;
+      svg {
+        fill: var(--secondary-text-color);
+        font-size: 1.2rem;
+      }
+      h5 {
+        font-weight: 600;
+        padding-left: 1rem;
+        margin: 0;
+      }
+    }
     .card {
       cursor: pointer;
     }
+
     .activePayment {
       .paymentContent {
         height: 200px;
+        border: 1px solid #e6e6e6;
+        border-top: 0;
       }
-      .arrow {
-        svg {
-          transition: all 0.5s ease-out;
-          transform: rotateZ(180deg);
+      .card {
+        border-radius: 10px 10px 0 0;
+
+        .arrow {
+          svg {
+            transition: all 0.5s ease-out;
+            transform: rotateZ(180deg);
+          }
         }
       }
     }
     .paymentContent {
       background: #f7f7f7;
-      border-radius: 10px;
-      border: 1px solid #e6e6e6;
+      border-radius: 0 0 10px 10px;
     }
     .addressTitle {
       padding: 0;

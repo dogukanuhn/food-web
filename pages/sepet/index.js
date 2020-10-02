@@ -3,6 +3,9 @@ import { useSelector } from 'react-redux'
 import Layout from '../../components/Layout'
 import CartItem from '../../components/CartItem'
 import TextInput from '../../components/TextInput'
+import AddressCard from '../../components/AddressCard'
+import Card from '../../components/Card'
+
 import IconButton from '../../components/IconButton'
 import {
   Plus,
@@ -15,7 +18,7 @@ import Button from '../../components/Button'
 import { useRouter } from 'next/router'
 import styles from './cartpage.module.css'
 import cn from 'classnames'
-import { Row, Col } from 'react-bootstrap'
+import { Row, Col, Form } from 'react-bootstrap'
 export default function index() {
   const cartItems = useSelector((state) => state['RootReducer']['cart'])
   const [selectedAddress, setSelectedAddress] = useState(0)
@@ -43,7 +46,7 @@ export default function index() {
     <Layout>
       <div className="container" id={styles.cartPage}>
         <h1>Sepet</h1>
-        <div className={styles.card}>
+        <Card className={styles.card}>
           {cartItems.map((x, i) => {
             return (
               <CartItem
@@ -69,91 +72,31 @@ export default function index() {
               {totalPrice} ₺
             </span>
           </div>
-        </div>
+        </Card>
+
         <div className={styles.titleArea}>
           <h3>Siparişin Teslim Edileceği Adres</h3>
           <IconButton className={styles.addButton}>
             <Plus />
           </IconButton>
         </div>
-        <div
-          className={cn(
-            styles.card,
-            styles.addressCard,
-            selectedAddress === 0 && styles.active
-          )}
+
+        <AddressCard
+          icon={<Home />}
+          name="Berkay Doğukan Urhan"
+          addres="4219 Davis Avenue Fremont California"
+          type="Ev Adresi"
           onClick={() => setSelectedAddress(0)}
-        >
-          <div className={styles.addressTitle}>
-            <Home />
-            <h5>Ev Adresi</h5>
-          </div>
-          <div className={styles.adressInner}>
-            <div className="addressItem">
-              <Row>
-                <Col xs={2}>
-                  <div className="d-flex">
-                    <h6>Alıcı Adı</h6>
-                  </div>
-                </Col>
-                <Col xs={9}>
-                  <span>Berkay Doğukan Urhan</span>
-                </Col>
-              </Row>
-            </div>
-            <div className="addressItem">
-              <Row>
-                <Col xs={2}>
-                  <div className="d-flex">
-                    <h6>Teslim Adresi</h6>
-                  </div>
-                </Col>
-                <Col xs={9}>
-                  <span>4219 Davis Avenue Fremont California</span>
-                </Col>
-              </Row>
-            </div>
-          </div>
-        </div>
-        <div
-          className={cn(
-            styles.card,
-            styles.addressCard,
-            selectedAddress === 1 && styles.active
-          )}
-          onClick={() => setSelectedAddress(1)}
-        >
-          <div className={styles.addressTitle}>
-            <Business />
-            <h5>İş Adresi</h5>
-          </div>
-          <div className={styles.adressInner}>
-            <div className="addressItem">
-              <Row>
-                <Col xs={2}>
-                  <div className="d-flex">
-                    <h6>Alıcı Adı</h6>
-                  </div>
-                </Col>
-                <Col xs={9}>
-                  <span>Berkay Doğukan Urhan</span>
-                </Col>
-              </Row>
-            </div>
-            <div className="addressItem">
-              <Row>
-                <Col xs={2}>
-                  <div className="d-flex">
-                    <h6>Teslim Adresi</h6>
-                  </div>
-                </Col>
-                <Col xs={9}>
-                  <span>4219 Davis Avenue Fremont California</span>
-                </Col>
-              </Row>
-            </div>
-          </div>
-        </div>
+          isSelected={selectedAddress === 0}
+        />
+        <AddressCard
+          icon={<Home />}
+          name="Berkay Doğukan Urhan"
+          addres="4219 Davis Avenue Fremont California"
+          type="Ev Adresi"
+          click={() => console.log('asdf')}
+          isSelected={selectedAddress === 1}
+        />
         <div className={styles.titleArea}>
           <h3>Ödeme Yöntemleri</h3>
         </div>
@@ -162,35 +105,39 @@ export default function index() {
             className={selectedPayment === 0 && styles.activePayment}
             onClick={() => setSelectedPayment(0)}
           >
-            <div className={styles.card}>
+            <Card className={styles.card}>
               <div className={styles.addressTitle}>
                 <div className="d-flex">
                   <CreditCard />
-                  <h5>İş Adresi</h5>
+                  <h5>Kredi Kartı ile Online Ödeme</h5>
                 </div>
                 <IconButton className={styles.arrow}>
                   <Arrowbottom />
                 </IconButton>
               </div>
+            </Card>
+            <div className={styles.paymentContent}>
+              <Form.Row></Form.Row>
             </div>
-            <div className={styles.paymentContent}></div>
           </div>
           <div
             className={selectedPayment === 1 && styles.activePayment}
             onClick={() => setSelectedPayment(1)}
           >
-            <div className={styles.card}>
+            <Card className={styles.card}>
               <div className={styles.addressTitle}>
                 <div className="d-flex">
                   <CreditCard />
-                  <h5>İş Adresi</h5>
+                  <h5>Kapıda Nakit Ödeme</h5>
                 </div>
                 <IconButton className={styles.arrow}>
                   <Arrowbottom />
                 </IconButton>
               </div>
+            </Card>
+            <div className={styles.paymentContent}>
+              <span></span>
             </div>
-            <div className={styles.paymentContent}></div>
           </div>
         </div>
       </div>
