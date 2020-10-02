@@ -1,4 +1,12 @@
 #cartPage {
+  .buttonArea {
+    margin-top: 1rem;
+    text-align: right;
+    .buyButton {
+      background: var(--cart-color);
+      color: white;
+    }
+  }
   .card {
     img {
       height: 7rem !important ;
@@ -35,6 +43,13 @@
   }
 
   .paymentOptions {
+    .creditCard {
+      margin: 0 auto;
+      width: 20rem;
+      input {
+        margin-bottom: 1rem;
+      }
+    }
     .addressTitle {
       display: flex;
       align-items: center;
@@ -56,10 +71,25 @@
 
     .activePayment {
       .paymentContent {
-        height: 200px;
+        display: block;
+
+        padding: 1rem;
         border: 1px solid #e6e6e6;
         border-top: 0;
+        .radio {
+          label {
+            padding-left: 0.5rem;
+            margin: 0;
+          }
+          margin-bottom: 1rem;
+          font-weight: 600;
+          .muted {
+            opacity: 0.5;
+            font-weight: initial;
+          }
+        }
       }
+
       .card {
         border-radius: 10px 10px 0 0;
 
@@ -72,6 +102,7 @@
       }
     }
     .paymentContent {
+      display: none;
       background: #f7f7f7;
       border-radius: 0 0 10px 10px;
     }

@@ -94,12 +94,14 @@ export default function index() {
           name="Berkay Doğukan Urhan"
           addres="4219 Davis Avenue Fremont California"
           type="Ev Adresi"
-          click={() => console.log('asdf')}
+          click={() => setSelectedAddress(1)}
           isSelected={selectedAddress === 1}
         />
+
         <div className={styles.titleArea}>
           <h3>Ödeme Yöntemleri</h3>
         </div>
+
         <div className={styles.paymentOptions}>
           <div
             className={selectedPayment === 0 && styles.activePayment}
@@ -109,7 +111,7 @@ export default function index() {
               <div className={styles.addressTitle}>
                 <div className="d-flex">
                   <CreditCard />
-                  <h5>Kredi Kartı ile Online Ödeme</h5>
+                  <h5>Online Ödeme</h5>
                 </div>
                 <IconButton className={styles.arrow}>
                   <Arrowbottom />
@@ -117,7 +119,24 @@ export default function index() {
               </div>
             </Card>
             <div className={styles.paymentContent}>
-              <Form.Row></Form.Row>
+              <div className={styles.creditCard}>
+                <form>
+                  <Form.Row>
+                    <Col xs={12}>
+                      <TextInput placeholder="Kredi Kartı Numarası" />
+                    </Col>
+                    <Col xs={6}>
+                      <TextInput placeholder="MM / YY" />
+                    </Col>
+                    <Col xs={6}>
+                      <TextInput placeholder="CVV" />
+                    </Col>
+                    <Col xs={12}>
+                      <Form.Check type="checkbox" label="3D Secure" />
+                    </Col>
+                  </Form.Row>
+                </form>
+              </div>
             </div>
           </div>
           <div
@@ -128,7 +147,7 @@ export default function index() {
               <div className={styles.addressTitle}>
                 <div className="d-flex">
                   <CreditCard />
-                  <h5>Kapıda Nakit Ödeme</h5>
+                  <h5>Kapıda Ödeme</h5>
                 </div>
                 <IconButton className={styles.arrow}>
                   <Arrowbottom />
@@ -136,9 +155,27 @@ export default function index() {
               </div>
             </Card>
             <div className={styles.paymentContent}>
-              <span></span>
+              <div className={styles.radio}>
+                <input type="radio" id="nakit" name="payment" value="nakit" />
+                <label for="nakit">
+                  Nakit <span className={styles.muted}>(Nakit ödeme)</span>
+                </label>
+              </div>
+              <div className={styles.radio}>
+                <input type="radio" id="kredi" name="payment" value="kredi" />
+                <label for="kredi">
+                  Kredi Kartı{' '}
+                  <span className={styles.muted}>
+                    (Sipariş tesliminde kredi kartı / banka kartı ile ödeme)
+                  </span>
+                </label>
+              </div>
             </div>
           </div>
+        </div>
+
+        <div className={styles.buttonArea}>
+          <Button className={styles.buyButton}>Satın Al</Button>
         </div>
       </div>
     </Layout>

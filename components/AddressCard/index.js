@@ -13,6 +13,7 @@ export default function index({
   click,
   ...props
 }) {
+  console.log(isSelected)
   return (
     <Card
       className={cn(styles.addressCard, className, isSelected && styles.active)}
