@@ -1,14 +1,16 @@
-import React, { useState } from 'react'
-import { Col, Row } from 'react-bootstrap'
+import React, { useEffect, useState } from 'react'
+
 import styles from './account.module.css'
 import TextInput from '../TextInput'
 import Button from '../Button'
-
+import AOS from 'aos'
 export default function index({ type = 0 }) {
   const [tab, settab] = useState(type)
-
+  useEffect(() => {
+    AOS.init()
+  })
   return (
-    <div className={styles.modal}>
+    <div className={styles.modal} data-aos="fade-up" data-aos-duration="500">
       <div className={styles.modalInner}>
         <div className={styles.modalTop}>
           <h2>{tab === 0 ? 'Giriş Yap' : 'Kayıt Ol'}</h2>

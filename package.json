@@ -9,6 +9,7 @@
     "icon": "svgr icons -d components/icons --icon"
   },
   "dependencies": {
+    "aos": "^2.3.4",
     "bootstrap": "^4.5.2",
     "classnames": "^2.2.6",
     "next": "9.5.3",

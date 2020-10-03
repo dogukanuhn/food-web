@@ -5,6 +5,7 @@
   background: transparent;
   padding: 10px 25px;
   margin-left: 1rem;
+  outline: none !important;
   transition: var(--default-transition);
   &:hover {
     text-decoration: none;

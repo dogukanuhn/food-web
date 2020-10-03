@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { Col, Row } from 'react-bootstrap'
 import Select from '../Select'
 import ToggleButton from '../ToggleButton'
 import Button from '../Button'
-
+import AOS from 'aos'
 import styles from './foodmodal.module.css'
 export default function index({ data, closeModal }) {
   const [foodData, setfoodData] = useState(data)
@@ -15,6 +15,10 @@ export default function index({ data, closeModal }) {
     closeModal()
   }
 
+  useEffect(() => {
+    AOS.init()
+  })
+
   const handleSelect = (e, i) => {
     setfoodData({
       ...foodData,
@@ -24,7 +28,7 @@ export default function index({ data, closeModal }) {
 
   const dispatch = useDispatch()
   return (
-    <div className={styles.modal}>
+    <div className={styles.modal} data-aos="fade-up" data-aos-duration="500">
       <div className={styles.modalInner}>
         <div className={styles.modalTop}>
           <h3>{foodData.name}</h3>
