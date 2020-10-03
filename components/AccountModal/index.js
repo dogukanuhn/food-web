@@ -4,7 +4,7 @@ import styles from './account.module.css'
 import TextInput from '../TextInput'
 import Button from '../Button'
 import AOS from 'aos'
-import { propTypes } from 'react-bootstrap/esm/Image'
+
 export default function index({ type = 0 }) {
   const [tab, settab] = useState(type)
   useEffect(() => {
@@ -49,8 +49,4 @@ export default function index({ type = 0 }) {
       </div>
     </div>
   )
-}
-
-index.propTypes = {
-  type: PropTypes.number
 }

@@ -29,10 +29,10 @@ export default function Footer() {
                   <a href="">Hakkımızda</a>
                 </li>
                 <li>
-                  0<a href="">İletişim</a>
+                  <a href="">İletişim</a>
                 </li>
                 <li>
-                  0<a href="">S.S.S.</a>
+                  <a href="">S.S.S.</a>
                 </li>
               </ul>
             </div>
@@ -44,10 +44,10 @@ export default function Footer() {
                   <a href="">Kullanıcı Sözleşmesi</a>
                 </li>
                 <li>
-                  0<a href="">Aydınlatma Metni</a>
+                  <a href="">Aydınlatma Metni</a>
                 </li>
                 <li>
-                  0<a href="">Bilgi Toplumu Hizmetleri</a>
+                  <a href="">Bilgi Toplumu Hizmetleri</a>
                 </li>
               </ul>
             </div>

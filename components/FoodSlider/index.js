@@ -64,9 +64,10 @@ export default function index({ slideData }) {
   }
 
   const displaySlide = () => {
-    return slideData.map((x) => {
+    return slideData.map((x, i) => {
       return (
         <FoodCard
+          key={i}
           foodData={x}
           openModal={() => setmodal({ status: true, data: x })}
         ></FoodCard>

@@ -176,7 +176,6 @@ export default function index() {
               </div>
             </Col>
             <Col xs={6}>
-              0
               <div
                 className={selectedPayment === 1 && styles.activePayment}
                 onClick={() => setSelectedPayment(1)}
