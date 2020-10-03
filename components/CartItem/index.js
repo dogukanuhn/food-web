@@ -23,10 +23,47 @@ export default function index({
   const changeCount = (e) => {
     dispatch({
       type: 'ChangeFoodCount',
-      action: { id: id, count: e.target.value }
+      action: { id: id, count: parseInt(e.target.value) }
     })
   }
 
+  const showIngredients = () => {
+    return (
+      ingredient && (
+        <div>
+          <span className={styles.canceledItems}>
+            {ingredient.map((x) => {
+              return !x.status && `'${x.name}' `
+            })}
+          </span>
+          {ingredient.some((x) => x.status === false) && (
+            <span className={styles.canceledItems}>yok</span>
+          )}
+        </div>
+      )
+    )
+  }
+
+  const showSelectedItems = () => {
+    return (
+      items && (
+        <div>
+          <span className={styles.canceledItems}>
+            {Object.values(items).map((x) => {
+              return `'${x}' `
+            })}
+          </span>
+        </div>
+      )
+    )
+  }
+
+  const numberValidation = (e) => {
+    return (e.target.value =
+      !!e.target.value && Math.abs(e.target.value) >= 0
+        ? Math.abs(e.target.value)
+        : 0)
+  }
   return (
     <div id={styles.cartItem}>
       <Row className={styles.Row}>
@@ -35,27 +72,8 @@ export default function index({
         </Col>
         <Col xs={router.pathname === '/sepet' ? 4 : 5}>
           <span className={styles.foodName}>{name}</span>
-          {ingredient && (
-            <div>
-              <span className={styles.canceledItems}>
-                {ingredient.map((x) => {
-                  return !x.status && `'${x.name}' `
-                })}
-              </span>
-              {ingredient.some((x) => x.status === false) && (
-                <span className={styles.canceledItems}>yok</span>
-              )}
-            </div>
-          )}
-          {items && (
-            <div>
-              <span className={styles.canceledItems}>
-                {Object.values(items).map((x) => {
-                  return `'${x}' `
-                })}
-              </span>
-            </div>
-          )}
+          {showIngredients()}
+          {showSelectedItems()}
         </Col>
         <Col xs={router.pathname === '/sepet' ? 4 : 3} className="p-0">
           <div className={styles.numberArea}>
@@ -64,10 +82,7 @@ export default function index({
               type="number"
               value={count}
               onInput={(e) => {
-                e.target.value =
-                  !!e.target.value && Math.abs(e.target.value) >= 0
-                    ? Math.abs(e.target.value)
-                    : null
+                numberValidation(e)
               }}
               onChange={changeCount}
             />

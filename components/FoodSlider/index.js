@@ -44,38 +44,45 @@ export default function index({ slideData }) {
     nextArrow: <SampleNextArrow />
   }
 
+  const showModal = () => {
+    return (
+      modal.status && (
+        <React.Fragment>
+          <div
+            onClick={() => {
+              setmodal({ status: false, data: null })
+            }}
+            className="overlay"
+          ></div>
+          <FoodModal
+            data={modal.data}
+            closeModal={() => setmodal({ status: false, data: null })}
+          />
+        </React.Fragment>
+      )
+    )
+  }
+
+  const displaySlide = () => {
+    return slideData.map((x) => {
+      return (
+        <FoodCard
+          foodData={x}
+          openModal={() => setmodal({ status: true, data: x })}
+        ></FoodCard>
+      )
+    })
+  }
   return (
     <div id={styles.foodSlider}>
-      {modal.status && (
-        <div
-          onClick={() => {
-            setmodal({ status: false, data: null })
-          }}
-          className="overlay"
-        ></div>
-      )}
-      {modal.status && (
-        <FoodModal
-          data={modal.data}
-          closeModal={() => setmodal({ status: false, data: null })}
-        />
-      )}
+      {showModal()}
 
       <div className="container">
         <div className={styles.aboutArea}>
           <h3>Popüler Menülerimiz</h3>
         </div>
 
-        <Slider {...settings}>
-          {slideData.map((x) => {
-            return (
-              <FoodCard
-                foodData={x}
-                openModal={() => setmodal({ status: true, data: x })}
-              ></FoodCard>
-            )
-          })}
-        </Slider>
+        <Slider {...settings}>{displaySlide()}</Slider>
       </div>
     </div>
   )

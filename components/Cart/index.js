@@ -30,6 +30,38 @@ export default function index() {
     setTotalPrice(total)
   }, [cartItems])
 
+  const showCartItemCount = () => {
+    return (
+      cartItemCount > 0 && (
+        <div>
+          <Button
+            className={styles.paymentButton}
+            onClick={() => {
+              router.push('sepet')
+            }}
+          >
+            Öde
+          </Button>
+        </div>
+      )
+    )
+  }
+
+  const showCartItems = () => {
+    return cartItems.map((x, i) => {
+      return (
+        <CartItem
+          id={i}
+          src={x.image}
+          name={x.name}
+          count={x.count}
+          price={x.sellPrice}
+          ingredient={x.ingredients}
+          items={x.selectedItems}
+        />
+      )
+    })
+  }
   return (
     <div id={styles.cart}>
       <IconButton
@@ -47,35 +79,10 @@ export default function index() {
       >
         <div className={styles.title}>
           <h4>Sepet</h4>
-          {cartItemCount > 0 && (
-            <div>
-              <Button
-                className={styles.paymentButton}
-                onClick={() => {
-                  router.push('sepet')
-                }}
-              >
-                Öde
-              </Button>
-            </div>
-          )}
+          {showCartItemCount()}
         </div>
 
-        <div className={styles.cartInner}>
-          {cartItems.map((x, i) => {
-            return (
-              <CartItem
-                id={i}
-                src={x.image}
-                name={x.name}
-                count={x.count}
-                price={x.sellPrice}
-                ingredient={x.ingredients}
-                items={x.selectedItems}
-              />
-            )
-          })}
-        </div>
+        <div className={styles.cartInner}>{showCartItems()}</div>
         <span className={styles.pricing}>
           <span className={styles.totalText}>Toplam:</span>
           {totalPrice} ₺

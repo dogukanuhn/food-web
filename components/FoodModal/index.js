@@ -14,6 +14,7 @@ export default function index({ data, closeModal }) {
     dispatch({ type: 'AddToCart', action: foodData })
     closeModal()
   }
+  const dispatch = useDispatch()
 
   useEffect(() => {
     AOS.init()
@@ -26,16 +27,84 @@ export default function index({ data, closeModal }) {
     })
   }
 
-  const dispatch = useDispatch()
+  const getSelectList = () => {
+    var data = foodData.selectList
+    return (
+      data &&
+      data.map((x, i) => {
+        return (
+          <div className={styles.foodDetail}>
+            <Row>
+              <Col xs={2}>
+                <h6>{x.name}</h6>
+              </Col>
+              <Col xs={9}>
+                <Select
+                  selectOnChange={(e) => {
+                    handleSelect(e, i)
+                  }}
+                  data={x.data}
+                />
+              </Col>
+            </Row>
+          </div>
+        )
+      })
+    )
+  }
+
+  const getIngredients = () => {
+    var data = foodData.ingredients
+    return (
+      data && (
+        <div className={styles.foodDetail}>
+          <Row>
+            <Col xs={2}>
+              <div className="d-flex">
+                <h6>Malzemeler</h6>
+              </div>
+            </Col>
+            <Col xs={9}>
+              {data.map((x, i) => {
+                return (
+                  <ToggleButton
+                    className={!x.status && styles.noMaterial}
+                    click={() => {
+                      setfoodData({
+                        ...foodData,
+                        ingredients: data.map((y, z) =>
+                          i === z ? { ...y, status: !x.status } : y
+                        )
+                      })
+                    }}
+                  >
+                    {x.name}
+                  </ToggleButton>
+                )
+              })}
+            </Col>
+          </Row>
+        </div>
+      )
+    )
+  }
+
+  const showDiscount = () => {
+    return (
+      foodData.discount && (
+        <span className={styles.basePrice}>
+          {parseFloat(foodData.basePrice).toFixed(2)} ₺
+        </span>
+      )
+    )
+  }
   return (
     <div className={styles.modal} data-aos="fade-up" data-aos-duration="500">
       <div className={styles.modalInner}>
         <div className={styles.modalTop}>
           <h3>{foodData.name}</h3>
           <span className={styles.sellPrice}>
-            {foodData.discount && (
-              <span className={styles.basePrice}>{foodData.basePrice} ₺</span>
-            )}
+            {showDiscount()}
             {foodData.sellPrice} ₺
           </span>
         </div>
@@ -53,56 +122,8 @@ export default function index({ data, closeModal }) {
               </Col>
             </Row>
           </div>
-          {foodData.selectList &&
-            foodData.selectList.map((x, i) => {
-              return (
-                <div className={styles.foodDetail}>
-                  <Row>
-                    <Col xs={2}>
-                      <h6>{x.name}</h6>
-                    </Col>
-                    <Col xs={9}>
-                      <Select
-                        selectOnChange={(e) => {
-                          handleSelect(e, i)
-                        }}
-                        data={x.data}
-                      />
-                    </Col>
-                  </Row>
-                </div>
-              )
-            })}
-          {foodData.ingredients && (
-            <div className={styles.foodDetail}>
-              <Row>
-                <Col xs={2}>
-                  <div className="d-flex">
-                    <h6>Malzemeler</h6>
-                  </div>
-                </Col>
-                <Col xs={9}>
-                  {foodData.ingredients.map((x, i) => {
-                    return (
-                      <ToggleButton
-                        className={!x.status && styles.noMaterial}
-                        click={() => {
-                          setfoodData({
-                            ...foodData,
-                            ingredients: foodData.ingredients.map((y, z) =>
-                              i === z ? { ...y, status: !x.status } : y
-                            )
-                          })
-                        }}
-                      >
-                        {x.name}
-                      </ToggleButton>
-                    )
-                  })}
-                </Col>
-              </Row>
-            </div>
-          )}
+          {getSelectList()}
+          {getIngredients()}
         </div>
         <div className={styles.modalFooter}>
           <Button className={styles.addCart} onClick={addToCart}>

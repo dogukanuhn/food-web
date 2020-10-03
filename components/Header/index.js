@@ -14,13 +14,13 @@ export default function Header() {
   return (
     <div>
       {modalStatus.status && (
-        <div>
-          <AccountModal type={modalStatus.type} />{' '}
+        <React.Fragment>
+          <AccountModal type={modalStatus.type} />
           <div
             className="overlay"
             onClick={() => setmodalStatus({ status: false })}
           ></div>
-        </div>
+        </React.Fragment>
       )}
       <header id={styles.header} className="container">
         <div className={styles.logoArea}>
