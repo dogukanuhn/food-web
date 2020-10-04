@@ -132,9 +132,11 @@ export default function index() {
           <Row>
             <Col xs={6}>
               <Accordion
-                isOpen={selectedPayment === 0}
-                onClick={() => setSelectedPayment(0)}
-                title="Online Ödeme"
+                head={
+                  <div className="d-flex">
+                    <CreditCard /> <h5>Online Ödeme</h5>
+                  </div>
+                }
               >
                 <div className={styles.creditCard}>
                   <form>
@@ -166,9 +168,11 @@ export default function index() {
             </Col>
             <Col xs={6}>
               <Accordion
-                title="Kapıda Ödeme"
-                isOpen={selectedPayment === 1}
-                onClick={() => setSelectedPayment(1)}
+                head={
+                  <div className="d-flex">
+                    <Business /> <h5>Kapıda Ödeme</h5>
+                  </div>
+                }
               >
                 <div className={styles.radio}>
                   <input type="radio" id="nakit" name="payment" value="nakit" />

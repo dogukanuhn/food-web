@@ -3,6 +3,7 @@ import Layout from '../../components/Layout'
 import Card from '../../components/Card'
 import OrderCard from '../../components/OrderCard'
 import Tabs from '../../components/Tabs'
+import Accordion from '../../components/Accordion'
 
 export default function index() {
   return (
@@ -11,12 +12,12 @@ export default function index() {
         <h1>Hesabım</h1>
 
         <Tabs tabs={['Siparişlerim', 'Adreslerim', 'Ayarlarım']}>
-          <Card>
+          <div>
             <OrderCard />
-          </Card>
-          <Card>
+          </div>
+          <div>
             <OrderCard />
-          </Card>
+          </div>
         </Tabs>
       </div>
     </Layout>

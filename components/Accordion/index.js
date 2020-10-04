@@ -1,19 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './accordion.module.css'
 import cn from 'classnames'
 import Card from '../Card'
 import IconButton from '../IconButton'
 import { CreditCard, Arrowbottom } from '../../components/icons'
 
-export default function index({ title, children, isOpen, ...props }) {
+export default function index({ head, className, children, ...props }) {
+  const [toggle, setToggle] = useState(false)
   return (
-    <div className={cn(styles.accordion, isOpen && styles.active)} {...props}>
+    <div
+      className={cn(styles.accordion, toggle && styles.active, className)}
+      onClick={() => setToggle(!toggle)}
+      {...props}
+    >
       <Card className={styles.card}>
         <div className={styles.addressTitle}>
-          <div className="d-flex">
-            <CreditCard />
-            <h5>{title}</h5>
-          </div>
+          {head}
           <IconButton className={styles.arrow}>
             <Arrowbottom />
           </IconButton>
