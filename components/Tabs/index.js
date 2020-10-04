@@ -4,7 +4,7 @@ import styles from './content.module.css'
 import Button from '../Button'
 export default function index({ tabs, children }) {
   const [selectedTab, setSelectedTab] = useState(0)
-  console.log(children)
+
   const renderTabs = () => {
     return tabs.map((x, i) => {
       return (

@@ -7,7 +7,16 @@ export default function index({ orderDetail }) {
     <div className={styles.orderCard}>
       <Row>
         <Col xs={3}>
-          <span className={styles.date}>20.03.2020 - 15.15</span>
+          <div className={styles.wrapper}>
+            <span className={styles.title}>Sipariş Tarihi</span>
+            <span className={styles.date}>20.03.2020 - 15.15</span>
+          </div>
+        </Col>
+        <Col xs={3}>
+          <div className={styles.wrapper}>
+            <span className={styles.title}>Ödeme Şekli</span>
+            <span className={styles.date}>Kapıda Kredi Kartı</span>
+          </div>
         </Col>
       </Row>
     </div>

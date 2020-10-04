@@ -6,6 +6,7 @@ import TextInput from '../../components/TextInput'
 import AddressCard from '../../components/AddressCard'
 import Card from '../../components/Card'
 import TextArea from '../../components/TextArea'
+import Accordion from '../../components/Accordion'
 
 import IconButton from '../../components/IconButton'
 import {
@@ -130,95 +131,61 @@ export default function index() {
         <div className={styles.paymentOptions}>
           <Row>
             <Col xs={6}>
-              <div
-                className={selectedPayment === 0 && styles.activePayment}
+              <Accordion
+                isOpen={selectedPayment === 0}
                 onClick={() => setSelectedPayment(0)}
+                title="Online Ödeme"
               >
-                <Card className={styles.card}>
-                  <div className={styles.addressTitle}>
-                    <div className="d-flex">
-                      <CreditCard />
-                      <h5>Online Ödeme</h5>
-                    </div>
-                    <IconButton className={styles.arrow}>
-                      <Arrowbottom />
-                    </IconButton>
-                  </div>
-                </Card>
-                <div className={styles.paymentContent}>
-                  <div className={styles.creditCard}>
-                    <form>
-                      <Form.Row>
-                        <Col xs={12}>
-                          <TextInput placeholder="Kredi Kartı Numarası" />
-                        </Col>
-                        <Col xs={6}>
-                          <TextInput placeholder="MM / YY" />
-                        </Col>
-                        <Col xs={6}>
-                          <TextInput placeholder="CVV" />
-                        </Col>
-                        <Col xs={12}>
-                          <div className={styles.radio}>
-                            <input
-                              type="checkbox"
-                              id="3dsecure"
-                              name="payment"
-                              value="3dsecure"
-                            />
-                            <label for="3dsecure">3D Secure</label>
-                          </div>
-                        </Col>
-                      </Form.Row>
-                    </form>
-                  </div>
+                <div className={styles.creditCard}>
+                  <form>
+                    <Form.Row>
+                      <Col xs={12}>
+                        <TextInput placeholder="Kredi Kartı Numarası" />
+                      </Col>
+                      <Col xs={6}>
+                        <TextInput placeholder="MM / YY" />
+                      </Col>
+                      <Col xs={6}>
+                        <TextInput placeholder="CVV" />
+                      </Col>
+                      <Col xs={12}>
+                        <div className={styles.radio}>
+                          <input
+                            type="checkbox"
+                            id="3dsecure"
+                            name="payment"
+                            value="3dsecure"
+                          />
+                          <label for="3dsecure">3D Secure</label>
+                        </div>
+                      </Col>
+                    </Form.Row>
+                  </form>
                 </div>
-              </div>
+              </Accordion>
             </Col>
             <Col xs={6}>
-              <div
-                className={selectedPayment === 1 && styles.activePayment}
+              <Accordion
+                title="Kapıda Ödeme"
+                isOpen={selectedPayment === 1}
                 onClick={() => setSelectedPayment(1)}
               >
-                <Card className={styles.card}>
-                  <div className={styles.addressTitle}>
-                    <div className="d-flex">
-                      <CreditCard />
-                      <h5>Kapıda Ödeme</h5>
-                    </div>
-                    <IconButton className={styles.arrow}>
-                      <Arrowbottom />
-                    </IconButton>
-                  </div>
-                </Card>
-                <div className={styles.paymentContent}>
-                  <div className={styles.radio}>
-                    <input
-                      type="radio"
-                      id="nakit"
-                      name="payment"
-                      value="nakit"
-                    />
-                    <label for="nakit">
-                      Nakit <span className={styles.muted}>(Nakit ödeme)</span>
-                    </label>
-                  </div>
-                  <div className={styles.radio}>
-                    <input
-                      type="radio"
-                      id="kredi"
-                      name="payment"
-                      value="kredi"
-                    />
-                    <label for="kredi">
-                      Kredi Kartı
-                      <span className={styles.muted}>
-                        (Sipariş tesliminde kredi kartı / banka kartı ile ödeme)
-                      </span>
-                    </label>
-                  </div>
+                <div className={styles.radio}>
+                  <input type="radio" id="nakit" name="payment" value="nakit" />
+                  <label for="nakit">
+                    Nakit <span className={styles.muted}>(Nakit ödeme)</span>
+                  </label>
                 </div>
-              </div>
+                <div className={styles.radio}>
+                  <input type="radio" id="kredi" name="payment" value="kredi" />
+                  <label for="kredi">
+                    Kredi Kartı
+                    <span className={styles.muted}>
+                      (Sipariş tesliminde kredi kartı / banka kartı ile ödeme)
+                    </span>
+                  </label>
+                </div>
+              </Accordion>
             </Col>
           </Row>
         </div>

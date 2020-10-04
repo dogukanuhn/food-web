@@ -9,16 +9,15 @@ export default function index() {
     <Layout>
       <div className="container">
         <h1>Hesabım</h1>
-        <Card>
-          <Tabs tabs={['Siparişlerim', 'Adreslerim', 'Ayarlarım']}>
-            <div>
-              <OrderCard />
-            </div>
-            <div>
-              <OrderCard />
-            </div>
-          </Tabs>
-        </Card>
+
+        <Tabs tabs={['Siparişlerim', 'Adreslerim', 'Ayarlarım']}>
+          <Card>
+            <OrderCard />
+          </Card>
+          <Card>
+            <OrderCard />
+          </Card>
+        </Tabs>
       </div>
     </Layout>
   )

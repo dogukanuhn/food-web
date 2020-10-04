@@ -1,4 +1,13 @@
 .orderCard {
+  .title {
+    font-weight: 600;
+    font-size: 1rem;
+  }
   .date {
+  }
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
   }
 }
