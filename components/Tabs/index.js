@@ -3,7 +3,7 @@ import propTypes from 'prop-types'
 import styles from './content.module.css'
 import Button from '../Button'
 export default function index({ tabs, children }) {
-  const [selectedTab, setSelectedTab] = useState(0)
+  const [selectedTab, setSelectedTab] = useState(1)
 
   const renderTabs = () => {
     return tabs.map((x, i) => {

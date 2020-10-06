@@ -1,9 +1,9 @@
 import React from 'react'
 import Layout from '../../components/Layout'
-import Card from '../../components/Card'
 import OrderCard from '../../components/OrderCard'
 import Tabs from '../../components/Tabs'
-import Accordion from '../../components/Accordion'
+import MyAdressTab from '../../components/MyAdressTab'
+import { Col, Row } from 'react-bootstrap'
 
 export default function index() {
   return (
@@ -21,9 +21,7 @@ export default function index() {
               }}
             />
           </div>
-          <div>
-            <OrderCard />
-          </div>
+          <MyAdressTab />
         </Tabs>
       </div>
     </Layout>

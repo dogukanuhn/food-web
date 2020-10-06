@@ -3,6 +3,31 @@
     font-weight: 600;
     font-size: 1rem;
   }
+  .titleCenter {
+    text-align: center;
+  }
+
+  .orderDetailArea {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--secondary-text-color);
+
+    .orderItem {
+      margin-top: 0.5rem;
+      align-items: center;
+
+      .foodName {
+        font-weight: 600;
+        display: block;
+      }
+    }
+  }
+  .addresDetail {
+    padding-top: 1rem;
+    span {
+      display: block;
+    }
+  }
+
   .head {
     display: block;
     width: 100%;
@@ -11,5 +36,10 @@
     display: flex;
     flex-direction: column;
     text-align: center;
+  }
+  img {
+    border-radius: 10px;
+    height: 5rem;
+    object-fit: cover;
   }
 }
