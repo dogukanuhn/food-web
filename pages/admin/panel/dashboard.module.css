@@ -1,0 +1,21 @@
+.dashboard {
+  padding: 3rem 5rem;
+
+  .food {
+    background: #315fc5;
+
+    background-image: url('/images/food.png');
+  }
+  .user {
+    background: #43a94b;
+    background-image: url('/images/customer.png');
+  }
+  .shipment {
+    background: var(--primary-color);
+    background-image: url('/images/delivery.png');
+  }
+  .newOrder {
+    background: var(--primary-color);
+    background-image: url('/images/delivery.png');
+  }
+}
