@@ -3,8 +3,8 @@ import styles from './accordion.module.css'
 import cn from 'classnames'
 import Card from '../Card'
 import IconButton from '../IconButton'
-import { CreditCard, Arrowbottom } from '../../components/icons'
-
+import { Arrowbottom } from '../../components/icons'
+import propTypes from 'prop-types'
 export default function index({ head, className, children, ...props }) {
   const [toggle, setToggle] = useState(true)
   return (
@@ -23,4 +23,8 @@ export default function index({ head, className, children, ...props }) {
       <div className={styles.paymentContent}>{children}</div>
     </div>
   )
+}
+
+index.propTypes = {
+  head: propTypes.string
 }

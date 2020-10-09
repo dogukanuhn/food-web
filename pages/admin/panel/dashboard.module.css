@@ -18,4 +18,24 @@
     background: var(--primary-color);
     background-image: url('/images/delivery.png');
   }
+
+  .distToDistrict {
+    margin-top: 2rem;
+    .tableTitle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid whitesmoke;
+      padding: 0 0.5rem 0.5rem;
+    }
+    .tableItem {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.7rem 0.5rem;
+      span {
+        font-weight: 600;
+      }
+    }
+  }
 }

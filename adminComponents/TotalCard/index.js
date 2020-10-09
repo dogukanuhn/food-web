@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Card from './../../components/Card'
 import styles from './totalcard.module.css'
 import cn from 'classnames'
+import propTypes from 'prop-types'
 export default function index({ count, link, title, className, ...props }) {
   return (
     <Card className={cn(className, styles.totalCard)}>
@@ -19,4 +20,10 @@ export default function index({ count, link, title, className, ...props }) {
       </div>
     </Card>
   )
+}
+
+index.propTypes = {
+  count: propTypes.number,
+  link: propTypes.string,
+  title: propTypes.string
 }
