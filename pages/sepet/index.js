@@ -7,31 +7,38 @@ import AddressCard from '../../components/AddressCard'
 import Card from '../../components/Card'
 import TextArea from '../../components/TextArea'
 import Accordion from '../../components/Accordion'
-
 import IconButton from '../../components/IconButton'
-import {
-  Plus,
-  Home,
-  Business,
-  CreditCard,
-  Arrowbottom
-} from '../../components/icons'
+import { Plus, Home, Business, CreditCard } from '../../components/icons'
 import Button from '../../components/Button'
 import { useRouter } from 'next/router'
 import styles from './cartpage.module.css'
-import cn from 'classnames'
 import { Row, Col, Form } from 'react-bootstrap'
+import axios from 'axios'
 export default function index() {
   const cartItems = useSelector((state) => state['RootReducer']['cart'])
+
   const [selectedAddress, setSelectedAddress] = useState(0)
-  const [selectedPayment, setSelectedPayment] = useState(0)
+  const [userDetail, setUserDetail] = useState({
+    id: 'test1',
+    name: 'Berkay Doğukan',
+    surname: 'Urhan',
+    email: 'mail@dogukanurhan.com',
+    identityNumber: '74300864791',
+    registrationAddress: '4219 Davis Avenue Fremont California',
+    ip: '192.168.1.1',
+    city: 'Istanbul',
+    country: 'Turkey'
+  })
 
   const cartItemCount = useSelector(
     (state) => state['RootReducer']['cartTotalItem']
   )
 
   const [totalPrice, setTotalPrice] = useState(0)
+  const [threeD, setThreeD] = useState('')
+
   const router = useRouter()
+
   useEffect(() => {
     if (cartItemCount > 0) {
       var total = parseFloat(
@@ -43,6 +50,26 @@ export default function index() {
 
     setTotalPrice(total)
   }, [cartItems])
+
+  const initPayment = () => {
+    axios
+      .post('http://localhost:3000/api/payment', {
+        basket: cartItems,
+        userDetail: userDetail,
+        totalPrice: totalPrice,
+        paymentCard: {
+          cardNumber: '5890040000000016',
+          cardHolderName: 'Berkay Doğukan Urhan',
+          expireMonth: '12',
+          expireYear: '2030',
+          cvc: '123',
+          registerCard: '0'
+        }
+      })
+      .then((x) => {
+        router.push('/payment/' + x.data.threeDSHtmlContent)
+      })
+  }
 
   return (
     <Layout>
@@ -194,7 +221,9 @@ export default function index() {
           </Row>
         </div>
         <div className={styles.buttonArea}>
-          <Button className={styles.buyButton}>Satın Al</Button>
+          <Button className={styles.buyButton} onClick={initPayment}>
+            Satın Al
+          </Button>
         </div>
       </div>
     </Layout>

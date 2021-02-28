@@ -10,8 +10,12 @@
   },
   "dependencies": {
     "aos": "^2.3.4",
+    "axios": "^0.21.1",
+    "base-64": "^1.0.0",
     "bootstrap": "^4.5.2",
     "classnames": "^2.2.6",
+    "html-react-parser": "^1.2.4",
+    "iyzipay": "^2.0.48",
     "next": "9.5.3",
     "react": "16.13.1",
     "react-addons-update": "^15.6.2",

@@ -7,6 +7,9 @@
       color: white;
     }
   }
+  .payment {
+    background: black;
+  }
   .card {
     img {
       height: 7rem !important ;
