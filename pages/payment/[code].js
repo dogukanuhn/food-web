@@ -15,5 +15,5 @@ export default function index() {
     document.head.appendChild(script)
   }, [])
 
-  return <div dangerouslySetInnerHTML={{ __html: decode(code) }} />
+  return <div>test</div>
 }
