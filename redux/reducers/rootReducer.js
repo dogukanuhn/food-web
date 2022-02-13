@@ -1,53 +1,19 @@
 const initialState = {
-  cart: [
-    {
-      id: 1,
-      image: '/images/burger.jpg',
-      name: 'Jet Burger',
-      basePrice: 10,
-      discount: true,
-      sellPrice: 8.99,
-      ingredients: [
-        {
-          name: 'Soğan',
-          status: true
-        },
-        {
-          name: 'Domates',
-          status: true
-        },
-        {
-          name: 'Marul',
-          status: true
-        }
-      ],
-      selectedItems: [],
-      ingredientsText:
-        'Kuru soğan, buğday unu, tam buğday unu. Sarımsak, tam yağlı yoğurt, pul biber, tereyağı, dana kıyma, karabiber',
-      count: 1
+  cart: [{
+    "id":{
+       "timestamp":1641314901,
+       "machine":2000950,
+       "pid":20799,
+       "increment":12081505,
+       "creationTime":"2022-01-04T16:48:21Z"
     },
-    {
-      id: 2,
-      image: '/images/taco.jpg',
-      name: 'Etli Taco',
-      basePrice: 13,
-      discount: false,
-      sellPrice: 13,
-      selectList: [
-        {
-          name: 'Hamur',
-          data: ['Sert', 'Yumuşak']
-        }
-      ],
-      selectedItems: {
-        0: 'Sert'
-      },
-      ingredientsText:
-        'Kuru soğan, buğday unu, tam buğday unu. Sarımsak, tam yağlı yoğurt, pul biber, tereyağı, dana kıyma, karabiber',
-      count: 1
-    }
-  ],
-  cartTotalItem: 2
+    "productId":"ebba33dd-bf62-4a16-8ba1-3fb1f688226c",
+    "name":"Pizza",
+    "ingredientsText":"Tavuk, Barbekü sosu, Hamur, beyaz un, domates sosu",
+    "basePrice":10,
+    "sellPrice":5
+ }],
+  cartTotalItem: 1
 }
 
 export default function reducer2(state = initialState, outAction) {

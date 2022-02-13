@@ -68,7 +68,7 @@ export default function index({
     <div id={styles.cartItem}>
       <Row className={styles.Row}>
         <Col xs={2} className="pr-0">
-          <img src={src} alt="" />
+          <img src={`/images/${name.toLowerCase()}.jpg`} alt="" />
         </Col>
         <Col xs={router.pathname === '/sepet' ? 4 : 5}>
           <span className={styles.foodName}>{name}</span>
@@ -77,15 +77,6 @@ export default function index({
         </Col>
         <Col xs={router.pathname === '/sepet' ? 4 : 3} className="p-0">
           <div className={styles.numberArea}>
-            <input
-              min="0"
-              type="number"
-              value={count}
-              onInput={(e) => {
-                numberValidation(e)
-              }}
-              onChange={changeCount}
-            />
             <span className={cn(styles.price, priceClass)}>
               {parseFloat(price).toFixed(2)} ₺
             </span>
@@ -108,7 +99,6 @@ export default function index({
 
 index.propTypes = {
   id: PropTypes.number,
-  src: PropTypes.string,
   name: PropTypes.string,
   count: PropTypes.number,
   price: PropTypes.number,

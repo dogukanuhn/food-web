@@ -23,24 +23,7 @@ export default function Header() {
         </React.Fragment>
       )}
       <header id={styles.header} className="container">
-        <div className={styles.logoArea}>
-          <Link href="/">
-            <a>
-              <img src="/images/logo.png" />
-            </a>
-          </Link>
-        </div>
-        <HeaderMenu>
-          <Button onClick={() => setmodalStatus({ status: true, type: 0 })}>
-            Giriş Yap
-          </Button>
-          <Button
-            onClick={() => setmodalStatus({ status: true, type: 1 })}
-            color={true}
-          >
-            Kayıt Ol
-          </Button>
-        </HeaderMenu>
+       
       </header>
     </div>
   )

@@ -17,7 +17,7 @@ export default function index({ foodData, openModal, className }) {
   }
   return (
     <div className={cn(styles.main, className)}>
-      <img src={foodData.image} alt="" />
+      <img src={`/images/${foodData.name.toLowerCase()}.jpg`} alt="" />
       <div className={styles.detail}>
         <div className={styles.inner}>
           <IconButton className={styles.cartButton} click={openModal}>

@@ -35,7 +35,7 @@ export default (req, res) => {
       }
 
       var selectedItems = ''
-      console.log(Object.values(x['selectedItems']))
+ 
       if (x['selectedItems'] != undefined) {
         Object.values(x['selectedItems']).map((x) => {
           selectedItems = selectedItems.concat(x + ' ')

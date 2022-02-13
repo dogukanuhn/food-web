@@ -62,7 +62,6 @@ export default function index({ slideData }) {
       )
     )
   }
-
   const displaySlide = () => {
     return slideData.map((x, i) => {
       return (

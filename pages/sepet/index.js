@@ -19,15 +19,12 @@ export default function index() {
 
   const [selectedAddress, setSelectedAddress] = useState(0)
   const [userDetail, setUserDetail] = useState({
-    id: 'test1',
     name: 'Berkay Doğukan',
     surname: 'Urhan',
-    email: 'mail@dogukanurhan.com',
-    identityNumber: '74300864791',
     registrationAddress: '4219 Davis Avenue Fremont California',
-    ip: '192.168.1.1',
-    city: 'Istanbul',
-    country: 'Turkey'
+    line: 'Istanbul',
+    province: 'Bahçelievler',
+    district: 'Şirinevler',
   })
 
   const cartItemCount = useSelector(
@@ -35,14 +32,14 @@ export default function index() {
   )
 
   const [totalPrice, setTotalPrice] = useState(0)
-  const [threeD, setThreeD] = useState('')
+   const [cvv, setCVV] = useState("123");
 
   const router = useRouter()
 
   useEffect(() => {
     if (cartItemCount > 0) {
       var total = parseFloat(
-        cartItems.reduce((a, b) => a + b.sellPrice * b.count, 0)
+        cartItems.reduce((a, b) => a + b.sellPrice, 0)
       ).toFixed(2)
     } else {
       router.push('/')
@@ -53,21 +50,20 @@ export default function index() {
 
   const initPayment = () => {
     axios
-      .post('http://localhost:3000/api/payment', {
-        basket: cartItems,
-        userDetail: userDetail,
-        totalPrice: totalPrice,
-        paymentCard: {
+      .post('https://localhost:5001/api/order', {
+        orderItems: cartItems.map(item => ({productId:item.productId,price:item.sellPrice,count:1})),
+        address: {
+          line:userDetail.line,
+          province:userDetail.province,
+          district:userDetail.district,
+        },
+        payment: {
           cardNumber: '5890040000000016',
-          cardHolderName: 'Berkay Doğukan Urhan',
+          cardName: 'Berkay Doğukan Urhan',
           expireMonth: '12',
           expireYear: '2030',
-          cvc: '123',
-          registerCard: '0'
+          cvv: cvv,
         }
-      })
-      .then((x) => {
-        router.push('/payment/' + x.data.threeDSHtmlContent)
       })
   }
 
@@ -90,11 +86,8 @@ export default function index() {
               />
             )
           })}
-
           <div className={styles.pricing}>
             <div className={styles.promotionArea}>
-              <TextInput placeholder="Promosyon Kodu" />
-              <Button color={true}>Uygula</Button>
             </div>
             <span className={styles.pricingText}>
               <span className={styles.totalText}>Toplam: </span>
@@ -104,50 +97,15 @@ export default function index() {
         </Card>
 
         <Row>
-          <Col xs={6}>
-            <div className={styles.titleArea}>
-              <h3>Teslim Adresi</h3>
-              <IconButton className={styles.addButton}>
-                <Plus />
-              </IconButton>
-            </div>
-
-            <Row>
-              <Col xs={12}>
-                <AddressCard
-                  icon={<Home />}
-                  name="Berkay Doğukan Urhan"
-                  addres="4219 Davis Avenue Fremont California"
-                  type="Ev Adresi"
-                  onClick={() => setSelectedAddress(0)}
-                  isSelected={selectedAddress === 0}
-                />
-              </Col>
-              <Col xs={12}>
-                <AddressCard
-                  icon={<Business />}
-                  name="Berkay Doğukan Urhan"
-                  addres="4219 Davis Avenue Fremont California"
-                  type="İş Adresi"
-                  click={() => setSelectedAddress(1)}
-                  isSelected={selectedAddress === 1}
-                />
-              </Col>
-            </Row>
-          </Col>
-          <Col xs={6}>
-            <div className={styles.titleArea}>
-              <h3>Sipariş Notunuz</h3>
-            </div>
-
-            <div className={styles.noteArea}>
-              <Card>
-                <TextArea
-                  placeholder="(Var ise) Sipariş ile ilgili notunuz..."
-                  className={styles.customTextArea}
-                />
-              </Card>
-            </div>
+          <Col xs={12}>
+            <AddressCard
+              icon={<Business />}
+              name="Berkay Doğukan Urhan"
+              addres="4219 Davis Avenue Fremont California"
+              type="İş Adresi"
+              click={() => setSelectedAddress(1)}
+              isSelected={selectedAddress === 1}
+            />
           </Col>
         </Row>
 
@@ -157,14 +115,8 @@ export default function index() {
 
         <div className={styles.paymentOptions}>
           <Row>
-            <Col xs={6}>
-              <Accordion
-                head={
-                  <div className="d-flex">
-                    <CreditCard /> <h5>Online Ödeme</h5>
-                  </div>
-                }
-              >
+            <Col xs={12}>
+              <Accordion>
                 <div className={styles.creditCard}>
                   <form>
                     <Form.Row>
@@ -175,7 +127,7 @@ export default function index() {
                         <TextInput placeholder="MM / YY" />
                       </Col>
                       <Col xs={6}>
-                        <TextInput placeholder="CVV" />
+                        <TextInput onChange={(event) => setCVV(event.target.value)} placeholder="CVV" />
                       </Col>
                       <Col xs={12}>
                         <div className={styles.radio}>
@@ -185,36 +137,11 @@ export default function index() {
                             name="payment"
                             value="3dsecure"
                           />
-                          <label for="3dsecure">3D Secure</label>
+                          <label htmlFor="3dsecure">3D Secure</label>
                         </div>
                       </Col>
                     </Form.Row>
                   </form>
-                </div>
-              </Accordion>
-            </Col>
-            <Col xs={6}>
-              <Accordion
-                head={
-                  <div className="d-flex">
-                    <Business /> <h5>Kapıda Ödeme</h5>
-                  </div>
-                }
-              >
-                <div className={styles.radio}>
-                  <input type="radio" id="nakit" name="payment" value="nakit" />
-                  <label for="nakit">
-                    Nakit <span className={styles.muted}>(Nakit ödeme)</span>
-                  </label>
-                </div>
-                <div className={styles.radio}>
-                  <input type="radio" id="kredi" name="payment" value="kredi" />
-                  <label for="kredi">
-                    Kredi Kartı
-                    <span className={styles.muted}>
-                      (Sipariş tesliminde kredi kartı / banka kartı ile ödeme)
-                    </span>
-                  </label>
                 </div>
               </Accordion>
             </Col>

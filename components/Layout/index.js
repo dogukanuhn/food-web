@@ -10,7 +10,6 @@ export default function layout({ children }) {
       <Header></Header>
       <main>{children}</main>
       {router.pathname !== '/sepet' && <Cart />}
-      <Footer></Footer>
     </div>
   )
 }

@@ -13,7 +13,7 @@ export default function index({
   click,
   ...props
 }) {
-  console.log(isSelected)
+ 
   return (
     <Card
       className={cn(styles.addressCard, className, isSelected && styles.active)}
@@ -24,18 +24,20 @@ export default function index({
         {icon}
         <h5>{type}</h5>
       </div>
-      <div className={styles.adressInner}>
-        <div className="addressItem">
-          <Row>
-            <Col xs={3}>
-              <div className="d-flex">
-                <h6>Alıcı Adı</h6>
-              </div>
-            </Col>
-            <Col xs={8}>
-              <span>{name}</span>
-            </Col>
-          </Row>
+
+      <div className={styles.adressInner} className={styles.adressInner} className={styles.adressInner} 
+            className={styles.adressInner} >
+            <div className="addressItem">
+              <Row>
+                <Col xs={3}>
+                  <div className="d-flex">
+                    <h6>Alıcı Adı</h6>
+                  </div>
+                </Col>
+                <Col xs={8}>
+                  <span>{name}</span>
+                </Col>
+              </Row>
         </div>
         <div className="addressItem">
           <Row>

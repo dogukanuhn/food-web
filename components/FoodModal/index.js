@@ -110,7 +110,7 @@ export default function index({ data, closeModal }) {
         </div>
         <div className={styles.modalContent}>
           <div className={styles.foodImage}>
-            <img src={foodData.image} />
+            <img src={`/images/${foodData.name.toLowerCase()}.jpg`} />
           </div>
           <div className={styles.foodDetail}>
             <Row>

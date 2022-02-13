@@ -52,7 +52,6 @@ export default function index() {
       return (
         <CartItem
           id={i}
-          src={x.image}
           name={x.name}
           count={x.count}
           price={x.sellPrice}

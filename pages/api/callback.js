@@ -8,7 +8,7 @@ var iyzipay = new Iyzipay({
 
 export default (req, res) => {
   res.statusCode = 200
-  console.log(req.body)
+
 
   iyzipay.threedsPayment.create(
     {
@@ -18,7 +18,7 @@ export default (req, res) => {
       conversationData: req.body.conversationData
     },
     function (err, result) {
-      console.log(err, result)
+ 
     }
   )
 
