@@ -1,0 +1,10 @@
+.chartWrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.chart{
+    width: 200px !important;
+    margin-top: 20px;
+    height: 200px !important;
+}
