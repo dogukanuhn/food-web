@@ -23,7 +23,14 @@ export default function Header() {
         </React.Fragment>
       )}
       <header id={styles.header} className="container">
-       
+        <HeaderMenu>
+          <Link href={'/'}>
+            <a>Anasayfa</a>
+          </Link>
+          <Link href={'dashboard'}>
+            <a>Dashboard</a>
+          </Link>
+        </HeaderMenu>
       </header>
     </div>
   )

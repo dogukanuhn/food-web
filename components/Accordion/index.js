@@ -5,14 +5,23 @@ import Card from '../Card'
 import IconButton from '../IconButton'
 import { Arrowbottom } from '../../components/icons'
 import propTypes from 'prop-types'
-export default function index({ head, className, children, ...props }) {
-  const [toggle, setToggle] = useState(true)
+export default function index({
+  head,
+  className,
+  children,
+  headerClass,
+  ...props
+}) {
+  const [toggle, setToggle] = useState(false)
   return (
     <div
       className={cn(styles.accordion, toggle && styles.active, className)}
       {...props}
     >
-      <Card className={styles.card} onClick={() => setToggle(!toggle)}>
+      <Card
+        className={cn(styles.card, headerClass)}
+        onClick={() => setToggle(!toggle)}
+      >
         <div className={styles.addressTitle}>
           {head}
           <IconButton className={styles.arrow}>
